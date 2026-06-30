@@ -1,351 +1,345 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>O Lobo — Newsletter de Investimentos</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Lobo — Newsletter de Investimentos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { background: #efe8da; font-family: 'Archivo', sans-serif; color: #1c1a17; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-      ::selection { background: #1c1a17; color: #efe8da; }
-      @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-      button { font-family: 'Archivo', sans-serif; cursor: pointer; }
-      input, button { appearance: none; -webkit-appearance: none; }
-      a { text-decoration: none; }
-    </style>
-  </head>
-  <body>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #efe8da; font-family: 'Archivo', sans-serif; color: #1c1a17; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::selection { background: #1c1a17; color: #efe8da; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    button { font-family: 'Archivo', sans-serif; cursor: pointer; }
+    input, button { appearance: none; -webkit-appearance: none; }
+    a { text-decoration: none; }
+  </style>
+</head>
+<body>
 
-    <!-- NAV -->
-    <nav id="navbar" style="position:sticky;top:0;z-index:50;background:rgba(239,232,218,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #ddd4c2;">
-        <div style="max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
-              <button onclick="goHome()" style="background:none;border:none;text-align:left;padding:0;display:flex;flex-direction:column;line-height:1;">
-                      <span style="font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:0.04em;color:#1c1a17;">O LOBO</span>
-                      <span style="font-size:8px;letter-spacing:0.28em;color:#8a8071;margin-top:3px;">INVESTIMENTOS · WALL STREET</span>
-              </button>
-              <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
-                      <button onclick="goHome()" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Início</button>
-                      <button onclick="scrollToSection('edicoes')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Edições</button>
-                      <button onclick="scrollToSection('sobre')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Sobre</button>
-                      <button onclick="scrollToSection('assinar')" style="background:#1c1a17;color:#efe8da;border:none;font-size:12px;font-weight:700;letter-spacing:0.14em;padding:12px 22px;">ASSINAR</button>
-              </div>
-        </div>
-    </nav>
-
-    <!-- ===== HOME VIEW ===== -->
-    <div id="view-home">
-
-        <!-- HERO -->
-        <section style="background:#161616;color:#efe8da;padding:88px 32px 96px;">
-              <div style="max-width:760px;margin:0 auto;text-align:center;">
-                      <div style="display:inline-block;border:1px solid #3a382f;padding:8px 16px;margin-bottom:38px;">
-                                <span style="font-size:10px;letter-spacing:0.28em;color:#b8ad97;">NEWSLETTER SEMANAL · EDIÇÃO ATUAL #003</span>
-                      </div>
-                      <h1 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(48px,8.5vw,92px);line-height:0.98;letter-spacing:-0.01em;">
-                                Wall Street,<br><em style="font-style:italic;color:#8f867a;">sem enrolação.</em>
-                      </h1>
-                      <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.6;color:#c9c0ae;max-width:520px;margin:30px auto 0;">
-                                A newsletter semanal de investimentos no mercado americano que o brasileiro estava esperando. Sem jargão. Sem ruído. Só o que importa.
-                      </p>
-                      <div style="max-width:480px;margin:40px auto 0;">
-                                <div id="hero-form">
-                                            <form onsubmit="handleSubscribe(event,'hero-form','hero-success')" style="display:flex;gap:10px;">
-                                                          <input type="email" placeholder="seu@email.com" required style="flex:1;background:#efe8da;border:none;padding:15px 16px;font-family:'Archivo',sans-serif;font-size:14px;color:#1c1a17;outline:none;">
-                                                          <button type="submit" style="background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 22px;white-space:nowrap;">ASSINAR GRÁTIS</button>
-                                            </form>
-                                </div>
-                                <div id="hero-success" style="display:none;background:#1f2b22;border:1px solid #2f9d5b;padding:18px 22px;color:#cfe8d8;font-size:14px;">
-                                            ✓ Pronto! Te enviei um email pra confirmar a inscrição.
-                                </div>
-                                <p style="font-size:11px;letter-spacing:0.06em;color:#6f665a;margin-top:14px;">Grátis. Toda quinta-feira. Cancele quando quiser.</p>
-                      </div>
-                      <div style="margin-top:64px;padding-top:30px;border-top:1px solid #2a2820;">
-                                <p style="font-size:10px;letter-spacing:0.26em;color:#6f665a;">JÁ LERAM ESTA EDIÇÃO:</p>
-                                <p style="font-family:'DM Serif Display',serif;font-size:24px;color:#efe8da;margin-top:10px;">Mais de 5.000 leitores</p>
-                      </div>
-              </div>
-        </section>
-
-        <!-- SOBRE A NEWSLETTER -->
-        <section style="padding:96px 32px;">
-              <div style="max-width:1000px;margin:0 auto;">
-                      <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:64px;">SOBRE A NEWSLETTER</p>
-                      <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;">
-                                <div>
-                                            <div style="font-family:'DM Serif Display',serif;font-size:clamp(120px,18vw,184px);line-height:0.8;color:#1c1a17;">3</div>
-                                            <p style="font-size:12px;letter-spacing:0.18em;color:#6f665a;margin-top:18px;max-width:180px;">ANOS DISSECANDO WALL STREET</p>
-                                </div>
-                                <div style="display:flex;flex-direction:column;gap:30px;">
-                                            <div style="display:flex;gap:16px;">
-                                                          <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
-                                                          <div>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Sem jargão financeiro</p>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Explicamos derivativos como se você tivesse 15 anos.</p>
-                                                          </div>
-                                            </div>
-                                            <div style="display:flex;gap:16px;">
-                                                          <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
-                                                          <div>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Direto ao ponto</p>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Cada edição: 1 tema central, os mercados da semana, 1 empresa dissecada, 1 conceito explicado.</p>
-                                                          </div>
-                                            </div>
-                                            <div style="display:flex;gap:16px;">
-                                                          <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
-                                                          <div>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Independente</p>
-                                                                          <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Sem corretora, sem anúncio, sem comissão.</p>
-                                                          </div>
-                                            </div>
-                                </div>
-                      </div>
-              </div>
-        </section>
-
-        <!-- QUOTE -->
-        <section style="padding:0 32px 96px;">
-              <div style="max-width:820px;margin:0 auto;text-align:center;">
-                      <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(28px,4.6vw,46px);line-height:1.18;color:#1c1a17;">
-                                "Finalmente uma newsletter que não me trata como idiota."
-                      </p>
-                      <p style="font-size:11px;letter-spacing:0.2em;color:#8a8071;margin-top:28px;">— RAFAEL M., LEITOR DESDE A EDIÇÃO #001</p>
-              </div>
-        </section>
-
-        <!-- ÚLTIMA EDIÇÃO -->
-        <section id="edicoes" style="padding:24px 32px 40px;scroll-margin-top:80px;">
-              <div style="max-width:1000px;margin:0 auto;">
-                      <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:40px;">ÚLTIMA EDIÇÃO</p>
-                      <button onclick="openEdition(0)" style="display:block;width:100%;text-align:left;background:#161616;color:#efe8da;border:none;padding:48px clamp(28px,5vw,64px);">
-                                <div style="display:flex;gap:16px;align-items:center;font-size:10px;letter-spacing:0.2em;color:#8a8071;margin-bottom:28px;flex-wrap:wrap;">
-                                            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #003</span>
-                                            <span>·</span><span>26 JUN 2025</span><span>·</span><span>4 MIN DE LEITURA</span>
-                                </div>
-                              <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,4.4vw,46px);line-height:1.08;max-width:760px;">
-                                        O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.
-                              </h2>
-                              <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#b8ad97;max-width:620px;margin-top:24px;">
-                                A reunião do Fed terminou exatamente como o mercado esperava — em cima do muro. Mas o detalhe que ninguém comentou mudou tudo.
-                              </p>
-                              <span style="display:inline-block;margin-top:32px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:#2f9d5b;">LER EDIÇÃO COMPLETA →</span>
-                      </button>
-              </div>
-        </section>
-    
-      <!-- GRADE DE EDIÇÕES -->
-      <section style="padding:56px 32px 96px;">
-          <div style="max-width:1000px;margin:0 auto;">
-                <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;">
-                        <p style="font-size:11px;letter-spacing:0.28em;color:#8a8071;">TODAS AS EDIÇÕES</p>
-                        <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">3 EDIÇÕES</span>
-                </div>
-                <div id="editions-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
-          </div>
-      </section>
-    
-      <!-- CTA -->
-      <section id="assinar" style="background:#161616;color:#efe8da;padding:96px 32px;scroll-margin-top:0;">
-          <div style="max-width:620px;margin:0 auto;text-align:center;">
-                <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(30px,5vw,52px);line-height:1.1;color:#8f867a;">de graça, na sua caixa.</p>
-                <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#c9c0ae;margin-top:22px;">
-                  Junte-se a mais de 5.000 brasileiros que acompanham Wall Street com O Lobo.
-                </p>
-                <div style="max-width:460px;margin:36px auto 0;">
-                        <div id="cta-form">
-                                  <form onsubmit="handleSubscribe(event,'cta-form','cta-success')" style="display:flex;gap:10px;">
-                                              <input type="email" placeholder="seu@email.com" required style="flex:1;background:#efe8da;border:none;padding:15px 16px;font-family:'Archivo',sans-serif;font-size:14px;color:#1c1a17;outline:none;">
-                                              <button type="submit" style="background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 22px;white-space:nowrap;">ASSINAR GRÁTIS</button>
-                                  </form>
-                        </div>
-                        <div id="cta-success" style="display:none;background:#1f2b22;border:1px solid #2f9d5b;padding:18px 22px;color:#cfe8d8;font-size:14px;">
-                                  ✓ Você já está na lista. Até quinta!
-                        </div>
-                </div>
-          </div>
-      </section>
-    
-      <!-- SOBRE O LOBO -->
-      <section id="sobre" style="padding:96px 32px;scroll-margin-top:70px;">
-          <div style="max-width:680px;margin:0 auto;">
-                <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:48px;">SOBRE O LOBO</p>
-                <div style="display:flex;flex-direction:column;gap:26px;">
-                        <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">O Lobo nasceu porque a gente cansou de economês. Cansou do jargão que só serve para afastar o investidor comum e parecer mais inteligente do que é.</p>
-                        <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">Wall Street não precisa ser um bicho de sete cabeças. No fundo, é só um bando de gente tentando descobrir o que vai acontecer amanhã antes dos outros.</p>
-                        <div style="font-family:'DM Serif Display',serif;font-size:22px;line-height:1.4;border:1px solid #1c1a17;padding:28px 30px;color:#1c1a17;">
-                                  O Lobo não é corretora. Não tem produto pra vender. Não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso.
-                        </div>
-                        <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">Toda quinta-feira a gente disseca o que aconteceu de mais importante no mercado americano. Sem ruído, sem enrolação. Só o que importa pro seu dinheiro.</p>
-                </div>
-          </div>
-      </section>
-    
+  <!-- NAV -->
+  <nav id="navbar" style="position:sticky;top:0;z-index:50;background:rgba(239,232,218,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #ddd4c2;">
+    <div style="max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <button onclick="goHome()" style="background:none;border:none;text-align:left;padding:0;display:flex;flex-direction:column;line-height:1;">
+        <span style="font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:0.04em;color:#1c1a17;">O LOBO</span>
+        <span style="font-size:8px;letter-spacing:0.28em;color:#8a8071;margin-top:3px;">INVESTIMENTOS · WALL STREET</span>
+      </button>
+      <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+        <button onclick="goHome()" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Início</button>
+        <button onclick="scrollToSection('edicoes')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Edições</button>
+        <button onclick="scrollToSection('sobre')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Sobre</button>
+        <button onclick="scrollToSection('assinar')" style="background:#1c1a17;color:#efe8da;border:none;font-size:12px;font-weight:700;letter-spacing:0.14em;padding:12px 22px;">ASSINAR</button>
+      </div>
     </div>
-  
-  <!-- ===== READING VIEW ===== -->
+  </nav>
+
+  <!-- HOME VIEW -->
+  <div id="view-home">
+
+    <!-- HERO -->
+    <section style="background:#161616;color:#efe8da;padding:88px 32px 96px;">
+      <div style="max-width:760px;margin:0 auto;text-align:center;">
+        <div style="display:inline-block;border:1px solid #3a382f;padding:8px 16px;margin-bottom:38px;">
+          <span style="font-size:10px;letter-spacing:0.28em;color:#b8ad97;">NEWSLETTER SEMANAL · EDIÇÃO ATUAL #003</span>
+        </div>
+        <h1 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(48px,8.5vw,92px);line-height:0.98;letter-spacing:-0.01em;">
+          Wall Street,<br><em style="font-style:italic;color:#8f867a;">sem enrolação.</em>
+        </h1>
+        <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.6;color:#c9c0ae;max-width:520px;margin:30px auto 0;">
+          A newsletter semanal de investimentos no mercado americano que o brasileiro estava esperando. Sem jargão. Sem ruído. Só o que importa.
+        </p>
+        <div style="max-width:480px;margin:40px auto 0;">
+          <div id="hero-form">
+            <form onsubmit="handleSubscribe(event,'hero-form','hero-success')" style="display:flex;gap:10px;">
+              <input type="email" placeholder="seu@email.com" required style="flex:1;background:#efe8da;border:none;padding:15px 16px;font-family:'Archivo',sans-serif;font-size:14px;color:#1c1a17;outline:none;">
+              <button type="submit" style="background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 22px;white-space:nowrap;">ASSINAR GRÁTIS</button>
+            </form>
+          </div>
+          <div id="hero-success" style="display:none;background:#1f2b22;border:1px solid #2f9d5b;padding:18px 22px;color:#cfe8d8;font-size:14px;">
+            ✓ Pronto! Te enviei um email pra confirmar a inscrição.
+          </div>
+          <p style="font-size:11px;letter-spacing:0.06em;color:#6f665a;margin-top:14px;">Grátis. Toda quinta-feira. Cancele quando quiser.</p>
+        </div>
+        <div style="margin-top:64px;padding-top:30px;border-top:1px solid #2a2820;">
+          <p style="font-size:10px;letter-spacing:0.26em;color:#6f665a;">JÁ LERAM ESTA EDIÇÃO:</p>
+          <p style="font-family:'DM Serif Display',serif;font-size:24px;color:#efe8da;margin-top:10px;">Mais de 5.000 leitores</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE A NEWSLETTER -->
+    <section style="padding:96px 32px;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:64px;">SOBRE A NEWSLETTER</p>
+        <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;">
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-size:clamp(120px,18vw,184px);line-height:0.8;color:#1c1a17;">3</div>
+            <p style="font-size:12px;letter-spacing:0.18em;color:#6f665a;margin-top:18px;max-width:180px;">ANOS DISSECANDO WALL STREET</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:30px;">
+            <div style="display:flex;gap:16px;">
+              <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
+              <div>
+                <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Sem jargão financeiro</p>
+                <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Explicamos derivativos como se você tivesse 15 anos.</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;">
+              <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
+              <div>
+                <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Direto ao ponto</p>
+                <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Cada edição: 1 tema central, os mercados da semana, 1 empresa dissecada, 1 conceito explicado.</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;">
+              <span style="color:#2f9d5b;font-size:18px;line-height:1.4;">✓</span>
+              <div>
+                <p style="font-family:'Newsreader',serif;font-size:20px;font-weight:600;">Independente</p>
+                <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:4px;line-height:1.5;">Sem corretora, sem anúncio, sem comissão.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section style="padding:0 32px 96px;">
+      <div style="max-width:820px;margin:0 auto;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(28px,4.6vw,46px);line-height:1.18;color:#1c1a17;">
+          "Finalmente uma newsletter que não me trata como idiota."
+        </p>
+        <p style="font-size:11px;letter-spacing:0.2em;color:#8a8071;margin-top:28px;">— RAFAEL M., LEITOR DESDE A EDIÇÃO #001</p>
+      </div>
+    </section>
+
+    <!-- ÚLTIMA EDIÇÃO -->
+    <section id="edicoes" style="padding:24px 32px 40px;scroll-margin-top:80px;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:40px;">ÚLTIMA EDIÇÃO</p>
+        <button onclick="openEdition(0)" style="display:block;width:100%;text-align:left;background:#161616;color:#efe8da;border:none;padding:48px clamp(28px,5vw,64px);">
+          <div style="display:flex;gap:16px;align-items:center;font-size:10px;letter-spacing:0.2em;color:#8a8071;margin-bottom:28px;flex-wrap:wrap;">
+            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #003</span>
+            <span>·</span><span>26 JUN 2025</span><span>·</span><span>4 MIN DE LEITURA</span>
+          </div>
+          <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,4.4vw,46px);line-height:1.08;max-width:760px;">
+            O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.
+          </h2>
+          <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#b8ad97;max-width:620px;margin-top:24px;">
+            A reunião do Fed terminou exatamente como o mercado esperava — em cima do muro. Mas o detalhe que ninguém comentou mudou tudo.
+          </p>
+          <span style="display:inline-block;margin-top:32px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:#2f9d5b;">LER EDIÇÃO COMPLETA →</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- GRADE DE EDIÇÕES -->
+    <section style="padding:56px 32px 96px;">
+      <div style="max-width:1000px;margin:0 auto;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;">
+          <p style="font-size:11px;letter-spacing:0.28em;color:#8a8071;">TODAS AS EDIÇÕES</p>
+          <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">3 EDIÇÕES</span>
+        </div>
+        <div id="editions-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="assinar" style="background:#161616;color:#efe8da;padding:96px 32px;scroll-margin-top:0;">
+      <div style="max-width:620px;margin:0 auto;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(30px,5vw,52px);line-height:1.1;color:#8f867a;">de graça, na sua caixa.</p>
+        <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#c9c0ae;margin-top:22px;">
+          Junte-se a mais de 5.000 brasileiros que acompanham Wall Street com O Lobo.
+        </p>
+        <div style="max-width:460px;margin:36px auto 0;">
+          <div id="cta-form">
+            <form onsubmit="handleSubscribe(event,'cta-form','cta-success')" style="display:flex;gap:10px;">
+              <input type="email" placeholder="seu@email.com" required style="flex:1;background:#efe8da;border:none;padding:15px 16px;font-family:'Archivo',sans-serif;font-size:14px;color:#1c1a17;outline:none;">
+              <button type="submit" style="background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 22px;white-space:nowrap;">ASSINAR GRÁTIS</button>
+            </form>
+          </div>
+          <div id="cta-success" style="display:none;background:#1f2b22;border:1px solid #2f9d5b;padding:18px 22px;color:#cfe8d8;font-size:14px;">
+            ✓ Você já está na lista. Até quinta!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE O LOBO -->
+    <section id="sobre" style="padding:96px 32px;scroll-margin-top:70px;">
+      <div style="max-width:680px;margin:0 auto;">
+        <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:48px;">SOBRE O LOBO</p>
+        <div style="display:flex;flex-direction:column;gap:26px;">
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">O Lobo nasceu porque a gente cansou de economês. Cansou do jargão que só serve para afastar o investidor comum e parecer mais inteligente do que é.</p>
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">Wall Street não precisa ser um bicho de sete cabeças. No fundo, é só um bando de gente tentando descobrir o que vai acontecer amanhã antes dos outros.</p>
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;line-height:1.4;border:1px solid #1c1a17;padding:28px 30px;color:#1c1a17;">
+            O Lobo não é corretora. Não tem produto pra vender. Não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso.
+          </div>
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.72;color:#33302a;">Toda quinta-feira a gente disseca o que aconteceu de mais importante no mercado americano. Sem ruído, sem enrolação. Só o que importa pro seu dinheiro.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end view-home -->
+
+  <!-- READING VIEW -->
   <div id="view-reading" style="display:none;animation:fadeUp 0.4s ease;">
     <main>
-          <article style="max-width:680px;margin:0 auto;padding:56px 32px 40px;">
-                  <button onclick="goHome()" style="background:none;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#8a8071;margin-bottom:44px;">← TODAS AS EDIÇÕES</button>
-                  <div id="reading-meta" style="display:flex;gap:14px;align-items:center;font-size:10px;letter-spacing:0.18em;color:#8a8071;margin-bottom:24px;flex-wrap:wrap;"></div>
-                  <h1 id="reading-title" style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(32px,5.2vw,52px);line-height:1.06;color:#1c1a17;"></h1>
-                  <div style="height:1px;background:#d2c9b7;margin:40px 0;"></div>
-                  <div id="reading-body" style="display:flex;flex-direction:column;gap:6px;"></div>
-                  <div style="margin-top:56px;padding-top:40px;border-top:1px solid #d2c9b7;text-align:center;">
-                            <p style="font-family:'DM Serif Display',serif;font-size:24px;color:#1c1a17;">Gostou desta edição?</p>
-                            <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:8px;">Receba a próxima na sua caixa, toda quinta-feira.</p>
-                            <button onclick="scrollToSection('assinar');goHome();" style="margin-top:24px;background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 28px;">ASSINAR GRÁTIS</button>
-                  </div>
-          </article>
-          <section style="padding:40px 32px 80px;">
-                  <div style="max-width:680px;margin:0 auto;">
-                            <p style="font-size:11px;letter-spacing:0.26em;color:#8a8071;margin-bottom:24px;">OUTRAS EDIÇÕES</p>
-                            <div id="reading-other-editions"></div>
-                  </div>
-          </section>
+      <article style="max-width:680px;margin:0 auto;padding:56px 32px 40px;">
+        <button onclick="goHome()" style="background:none;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#8a8071;margin-bottom:44px;">← TODAS AS EDIÇÕES</button>
+        <div id="reading-meta" style="display:flex;gap:14px;align-items:center;font-size:10px;letter-spacing:0.18em;color:#8a8071;margin-bottom:24px;flex-wrap:wrap;"></div>
+        <h1 id="reading-title" style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(32px,5.2vw,52px);line-height:1.06;color:#1c1a17;"></h1>
+        <div style="height:1px;background:#d2c9b7;margin:40px 0;"></div>
+        <div id="reading-body" style="display:flex;flex-direction:column;gap:6px;"></div>
+        <div style="margin-top:56px;padding-top:40px;border-top:1px solid #d2c9b7;text-align:center;">
+          <p style="font-family:'DM Serif Display',serif;font-size:24px;color:#1c1a17;">Gostou desta edição?</p>
+          <p style="font-family:'Newsreader',serif;font-size:16px;color:#6f665a;margin-top:8px;">Receba a próxima na sua caixa, toda quinta-feira.</p>
+          <button onclick="scrollToSection('assinar');goHome();" style="margin-top:24px;background:#2f9d5b;color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:15px 28px;">ASSINAR GRÁTIS</button>
+        </div>
+      </article>
+      <section style="padding:40px 32px 80px;">
+        <div style="max-width:680px;margin:0 auto;">
+          <p style="font-size:11px;letter-spacing:0.26em;color:#8a8071;margin-bottom:24px;">OUTRAS EDIÇÕES</p>
+          <div id="reading-other-editions"></div>
+        </div>
+      </section>
     </main>
   </div>
 
-    <!-- FOOTER -->
-    <footer style="background:#161616;color:#8a8071;padding:56px 32px;">
-        <div style="max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
-              <div>
-                      <span style="font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:0.04em;color:#efe8da;">O LOBO</span>
-                      <p style="font-size:11px;letter-spacing:0.06em;margin-top:8px;">© 2026 O Lobo Investimentos. Não é recomendação de investimento.</p>
-              </div>
-              <div style="display:flex;gap:28px;">
-                      <button onclick="scrollToSection('edicoes')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">EDIÇÕES</button>
-                      <button onclick="scrollToSection('sobre')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">SOBRE</button>
-                      <button onclick="scrollToSection('assinar')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">ASSINAR</button>
-              </div>
-        </div>
-    </footer>
+  <!-- FOOTER -->
+  <footer style="background:#161616;color:#8a8071;padding:56px 32px;">
+    <div style="max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+      <div>
+        <span style="font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:0.04em;color:#efe8da;">O LOBO</span>
+        <p style="font-size:11px;letter-spacing:0.06em;margin-top:8px;">© 2026 O Lobo Investimentos. Não é recomendação de investimento.</p>
+      </div>
+      <div style="display:flex;gap:28px;">
+        <button onclick="scrollToSection('edicoes')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">EDIÇÕES</button>
+        <button onclick="scrollToSection('sobre')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">SOBRE</button>
+        <button onclick="scrollToSection('assinar')" style="background:none;border:none;color:#8a8071;letter-spacing:0.12em;font-family:'Archivo',sans-serif;font-size:11px;">ASSINAR</button>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-      const editions = [
-        {
-              label: '#003', date: '26 JUN 2025', read: '4 MIN',
-              title: 'O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.',
-              cardTitle: 'O Fed fez o que sempre faz quando não sabe o que fazer…',
-              body: [
-                      ['p','Quinta-feira de novo. Café na mão? Então vamos, porque essa semana o mercado americano resolveu ser dramático.'],
-                      ['p','O Federal Reserve se reuniu por dois dias para decidir o que fazer com os juros. E decidiu não fazer nada. De novo.'],
-                      ['h','O que realmente aconteceu'],
-                      ['p','Manter os juros parados não é "não fazer nada". É uma decisão. O Fed está num impasse clássico: se cortar, corre o risco de reacender a inflação; se subir, estrangula a economia.'],
-                      ['p','O recado nas entrelinhas: o presidente do Fed sinalizou que dois cortes ainda são possíveis até o fim do ano. Tradução: dinheiro mais barato chegando. As bolsas comemoraram.'],
-                      ['q','O mercado não reage ao que o Fed faz. Reage ao que ele deixa escapar que vai fazer.'],
-                      ['h','A empresa da semana — Intel'],
-                      ['p','A Intel subiu mais de 10% num único dia. Rumores de um aporte pesado para reerguer suas fábricas nos EUA. Depois de anos apanhando da Nvidia e AMD, a gigante adormecida deu sinal de vida.'],
-                      ['h','O conceito da semana — "taxa de juros"'],
-                      ['p','A taxa de juros é o preço do dinheiro. Quando sobe, pegar emprestado fica caro e a economia esfria. Quando cai, o dinheiro fica barato e a economia esquenta. O Fed mexe nesse botão. Só isso.'],
-                      ['p','Até quinta. — O Lobo'],
-                    ]
-        },
-        {
-              label: '#002', date: '19 JUN 2025', read: '5 MIN',
-              title: 'A Nvidia virou a empresa mais valiosa do mundo e todo mundo fingiu que não foi uma coisa maluca de acontecer.',
-              cardTitle: 'A Nvidia virou a empresa mais valiosa do mundo…',
-              body: [
-                      ['p','Aconteceu de novo, e dessa vez definitivamente: a Nvidia é a empresa mais valiosa do planeta. Passou Apple e Microsoft.'],
-                      ['h','Espera, a Nvidia não faz placa de vídeo?'],
-                      ['p','Fazia. Hoje ela faz os "cérebros" que treinam toda a inteligência artificial do mundo. Viraram a picareta da nova corrida do ouro.'],
-                      ['q','Numa corrida do ouro, não aposte nos garimpeiros. Aposte em quem vende as pás.'],
-                      ['h','O número que assusta'],
-                      ['p','A empresa vale mais que o PIB de quase todos os países do mundo. É muito dinheiro numa aposta só: a de que a IA vai continuar crescendo no ritmo atual.'],
-                      ['h','O conceito da semana — "valor de mercado"'],
-                      ['p','Preço da ação × número total de ações = valor de mercado. Não é quanto ela tem no banco — é quanto o mercado acha que ela vale. E o mercado muda de ideia o tempo todo.'],
-                      ['p','Até quinta. — O Lobo'],
-                    ]
-        },
-        {
-              label: '#001', date: '12 JUN 2025', read: '3 MIN',
-              title: 'Bem-vindo ao O Lobo. Vamos começar pelo começo: por que Wall Street parece feita pra você não entender.',
-              cardTitle: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender…',
-              body: [
-                      ['p','Se você está lendo isto, é a primeira edição de muitas. Então deixa eu ser honesto sobre o que isto é — e o que não é.'],
-                      ['h','O que isto não é'],
-                      ['p','Não é dica de ação pra ficar rico. Não é grupo de Telegram. Não é curso de mil reais. Se você procura isso, fecha aqui sem ressentimento.'],
-                      ['h','O que isto é'],
-                      ['p','É uma carta semanal que pega o mais importante do mercado americano e explica em português de gente. Toda quinta-feira, de graça.'],
-                      ['q','O mercado financeiro não é complicado por acaso. Ele é complicado de propósito, porque confusão é um ótimo negócio pra quem cobra pra te desconfundir.'],
-                      ['p','Os conceitos que importam cabem num guardanapo. Toda semana, mais um pedaço de Wall Street deixa de ser mistério pra você. Bora? — O Lobo'],
-                    ]
-        }
-        ];
-
-      function renderGrid() {
-          document.getElementById('editions-grid').innerHTML = editions.map((ed, i) => `
-              <button onclick="openEdition(${i})" style="text-align:left;cursor:pointer;background:none;border:1px solid #d2c9b7;padding:30px 30px 26px;display:flex;flex-direction:column;min-height:200px;">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;">
-                            <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;background:#1c1a17;color:#efe8da;padding:4px 9px;">${ed.label}</span>
-                                    <span style="font-size:10px;letter-spacing:0.16em;color:#8a8071;">${ed.date}</span>
-                                          </div>
-                                                <p style="font-family:'Newsreader',serif;font-weight:600;font-size:19px;line-height:1.32;color:#1c1a17;flex:1;">${ed.cardTitle}</p>
-                                                      <span style="margin-top:24px;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#1c1a17;">LER →</span>
-                                                          </button>
-                                                            `).join('');
+  <script>
+    const editions = [
+      {
+        label: '#003', date: '26 JUN 2025', read: '4 MIN',
+        title: 'O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.',
+        cardTitle: 'O Fed fez o que sempre faz quando não sabe o que fazer…',
+        body: [
+          ['p','Quinta-feira de novo. Café na mão? Então vamos, porque essa semana o mercado americano resolveu ser dramático.'],
+          ['p','O Federal Reserve se reuniu por dois dias para decidir o que fazer com os juros. E decidiu não fazer nada. De novo.'],
+          ['h','O que realmente aconteceu'],
+          ['p','Manter os juros parados não é "não fazer nada". É uma decisão. O Fed está num impasse clássico: se cortar, corre o risco de reacender a inflação; se subir, estrangula a economia.'],
+          ['p','O recado nas entrelinhas: o presidente do Fed sinalizou que dois cortes ainda são possíveis até o fim do ano. Tradução: dinheiro mais barato chegando. As bolsas comemoraram.'],
+          ['q','O mercado não reage ao que o Fed faz. Reage ao que ele deixa escapar que vai fazer.'],
+          ['h','A empresa da semana — Intel'],
+          ['p','A Intel subiu mais de 10% num único dia. Rumores de um aporte pesado para reerguer suas fábricas nos EUA. Depois de anos apanhando da Nvidia e AMD, a gigante adormecida deu sinal de vida.'],
+          ['h','O conceito da semana — "taxa de juros"'],
+          ['p','A taxa de juros é o preço do dinheiro. Quando sobe, pegar emprestado fica caro e a economia esfria. Quando cai, o dinheiro fica barato e a economia esquenta. O Fed mexe nesse botão. Só isso.'],
+          ['p','Até quinta. — O Lobo'],
+        ]
+      },
+      {
+        label: '#002', date: '19 JUN 2025', read: '5 MIN',
+        title: 'A Nvidia virou a empresa mais valiosa do mundo e todo mundo fingiu que não foi uma coisa maluca de acontecer.',
+        cardTitle: 'A Nvidia virou a empresa mais valiosa do mundo…',
+        body: [
+          ['p','Aconteceu de novo, e dessa vez definitivamente: a Nvidia é a empresa mais valiosa do planeta. Passou Apple e Microsoft.'],
+          ['h','Espera, a Nvidia não faz placa de vídeo?'],
+          ['p','Fazia. Hoje ela faz os "cérebros" que treinam toda a inteligência artificial do mundo. Viraram a picareta da nova corrida do ouro.'],
+          ['q','Numa corrida do ouro, não aposte nos garimpeiros. Aposte em quem vende as pás.'],
+          ['h','O número que assusta'],
+          ['p','A empresa vale mais que o PIB de quase todos os países do mundo. É muito dinheiro numa aposta só: a de que a IA vai continuar crescendo no ritmo atual.'],
+          ['h','O conceito da semana — "valor de mercado"'],
+          ['p','Preço da ação × número total de ações = valor de mercado. Não é quanto ela tem no banco — é quanto o mercado acha que ela vale. E o mercado muda de ideia o tempo todo.'],
+          ['p','Até quinta. — O Lobo'],
+        ]
+      },
+      {
+        label: '#001', date: '12 JUN 2025', read: '3 MIN',
+        title: 'Bem-vindo ao O Lobo. Vamos começar pelo começo: por que Wall Street parece feita pra você não entender.',
+        cardTitle: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender…',
+        body: [
+          ['p','Se você está lendo isto, é a primeira edição de muitas. Então deixa eu ser honesto sobre o que isto é — e o que não é.'],
+          ['h','O que isto não é'],
+          ['p','Não é dica de ação pra ficar rico. Não é grupo de Telegram. Não é curso de mil reais. Se você procura isso, fecha aqui sem ressentimento.'],
+          ['h','O que isto é'],
+          ['p','É uma carta semanal que pega o mais importante do mercado americano e explica em português de gente. Toda quinta-feira, de graça.'],
+          ['q','O mercado financeiro não é complicado por acaso. Ele é complicado de propósito, porque confusão é um ótimo negócio pra quem cobra pra te desconfundir.'],
+          ['p','Os conceitos que importam cabem num guardanapo. Toda semana, mais um pedaço de Wall Street deixa de ser mistério pra você. Bora? — O Lobo'],
+        ]
       }
+    ];
 
-      function openEdition(index) {
-          const ed = editions[index];
-          document.getElementById('reading-meta').innerHTML = `
-              <span style="background:#1c1a17;color:#efe8da;padding:4px 9px;font-size:11px;font-weight:700;">${ed.label}</span>
-                  <span>${ed.date}</span><span>·</span><span>${ed.read} DE LEITURA</span>
-                    `;
-          document.getElementById('reading-title').textContent = ed.title;
-          document.getElementById('reading-body').innerHTML = ed.body.map(([type, text]) => {
-                if (type === 'h') return `<h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:27px;line-height:1.2;color:#1c1a17;margin-top:30px;margin-bottom:6px;">${text}</h2>`;
-                if (type === 'q') return `<blockquote style="font-family:'DM Serif Display',serif;font-style:italic;font-size:25px;line-height:1.32;color:#1c1a17;border-left:3px solid #2f9d5b;padding:6px 0 6px 24px;margin:20px 0;">${text}</blockquote>`;
-                return `<p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.74;color:#33302a;margin-bottom:12px;">${text}</p>`;
-          }).join('');
-          document.getElementById('reading-other-editions').innerHTML = editions.filter((_,i)=>i!==index).map(e=>`
-              <button onclick="openEdition(${editions.indexOf(e)})" style="text-align:left;cursor:pointer;background:none;border:none;border-top:1px solid #d2c9b7;padding:20px 0;display:flex;gap:18px;align-items:center;width:100%;">
-                    <span style="font-size:11px;font-weight:700;color:#8a8071;min-width:48px;">${e.label}</span>
-                          <span style="font-family:'Newsreader',serif;font-size:17px;color:#1c1a17;flex:1;">${e.cardTitle}</span>
-                                <span style="color:#8a8071;">→</span>
-                                    </button>
-                                      `).join('');
-          document.getElementById('view-home').style.display = 'none';
-          document.getElementById('view-reading').style.display = 'block';
-          window.scrollTo({ top: 0, behavior: 'auto' });
-      }
+    function renderGrid() {
+      document.getElementById('editions-grid').innerHTML = editions.map((ed, i) => `
+        <button onclick="openEdition(${i})" style="text-align:left;cursor:pointer;background:none;border:1px solid #d2c9b7;padding:30px 30px 26px;display:flex;flex-direction:column;min-height:200px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;background:#1c1a17;color:#efe8da;padding:4px 9px;">${ed.label}</span>
+            <span style="font-size:10px;letter-spacing:0.16em;color:#8a8071;">${ed.date}</span>
+          </div>
+          <p style="font-family:'Newsreader',serif;font-weight:600;font-size:19px;line-height:1.32;color:#1c1a17;flex:1;">${ed.cardTitle}</p>
+          <span style="margin-top:24px;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#1c1a17;">LER →</span>
+        </button>
+      `).join('');
+    }
 
-      function goHome() {
-          document.getElementById('view-home').style.display = 'block';
-          document.getElementById('view-reading').style.display = 'none';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    function openEdition(index) {
+      const ed = editions[index];
+      document.getElementById('reading-meta').innerHTML = `
+        <span style="background:#1c1a17;color:#efe8da;padding:4px 9px;font-size:11px;font-weight:700;">${ed.label}</span>
+        <span>${ed.date}</span><span>·</span><span>${ed.read} DE LEITURA</span>
+      `;
+      document.getElementById('reading-title').textContent = ed.title;
+      document.getElementById('reading-body').innerHTML = ed.body.map(([type, text]) => {
+        if (type === 'h') return `<h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:27px;line-height:1.2;color:#1c1a17;margin-top:30px;margin-bottom:6px;">${text}</h2>`;
+        if (type === 'q') return `<blockquote style="font-family:'DM Serif Display',serif;font-style:italic;font-size:25px;line-height:1.32;color:#1c1a17;border-left:3px solid #2f9d5b;padding:6px 0 6px 24px;margin:20px 0;">${text}</blockquote>`;
+        return `<p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.74;color:#33302a;margin-bottom:12px;">${text}</p>`;
+      }).join('');
+      document.getElementById('reading-other-editions').innerHTML = editions.filter((_,i)=>i!==index).map(e=>`
+        <button onclick="openEdition(${editions.indexOf(e)})" style="text-align:left;cursor:pointer;background:none;border:none;border-top:1px solid #d2c9b7;padding:20px 0;display:flex;gap:18px;align-items:center;width:100%;">
+          <span style="font-size:11px;font-weight:700;color:#8a8071;min-width:48px;">${e.label}</span>
+          <span style="font-family:'Newsreader',serif;font-size:17px;color:#1c1a17;flex:1;">${e.cardTitle}</span>
+          <span style="color:#8a8071;">→</span>
+        </button>
+      `).join('');
+      document.getElementById('view-home').style.display = 'none';
+      document.getElementById('view-reading').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
 
-      function scrollToSection(id) {
-          if (document.getElementById('view-reading').style.display !== 'none') {
-                goHome(); setTimeout(() => doScroll(id), 60);
-          } else { doScroll(id); }
-      }
+    function goHome() {
+      document.getElementById('view-home').style.display = 'block';
+      document.getElementById('view-reading').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-      function doScroll(id) {
-          const el = document.getElementById(id);
-          if (!el) return;
-          window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: 'smooth' });
-      }
+    function scrollToSection(id) {
+      if (document.getElementById('view-reading').style.display !== 'none') {
+        goHome(); setTimeout(() => doScroll(id), 60);
+      } else { doScroll(id); }
+    }
 
-      function handleSubscribe(e, formId, successId) {
-          e.preventDefault();
-          document.getElementById(formId).style.display = 'none';
-          document.getElementById(successId).style.display = 'block';
-      }
+    function doScroll(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: 'smooth' });
+    }
 
-      renderGrid();
-    </script>
-  </body>
+    function handleSubscribe(e, formId, successId) {
+      e.preventDefault();
+      document.getElementById(formId).style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    }
+
+    renderGrid();
+  </script>
+
+</body>
 </html>
-    </script>
-    </main></span></span>
-                                                          </div>
-                                </div>
-  </body>
-  </style></title>
-  </head>
