@@ -30,7 +30,7 @@
       </button>
       <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
         <button onclick="goHome()" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Início</button>
-        <button onclick="scrollToSection('edicoes')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Edições</button>
+        <button onclick="window.location='/edicoes/'" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Edições</button>
         <button onclick="scrollToSection('sobre')" style="background:none;border:none;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#1c1a17;">Sobre</button>
         <button onclick="scrollToSection('assinar')" style="background:#1c1a17;color:#efe8da;border:none;font-size:12px;font-weight:700;letter-spacing:0.14em;padding:12px 22px;">ASSINAR</button>
       </div>
@@ -44,7 +44,7 @@
     <section style="background:#161616;color:#efe8da;padding:88px 32px 96px;">
       <div style="max-width:760px;margin:0 auto;text-align:center;">
         <div style="display:inline-block;border:1px solid #3a382f;padding:8px 16px;margin-bottom:38px;">
-          <span style="font-size:10px;letter-spacing:0.28em;color:#b8ad97;">NEWSLETTER SEMANAL · EDIÇÃO ATUAL #003</span>
+          <span style="font-size:10px;letter-spacing:0.28em;color:#b8ad97;">NEWSLETTER SEMANAL · EDIÇÃO DE BOAS-VINDAS</span>
         </div>
         <h1 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(48px,8.5vw,92px);line-height:0.98;letter-spacing:-0.01em;">
           Wall Street,<br><em style="font-style:italic;color:#8f867a;">sem enrolação.</em>
@@ -123,14 +123,14 @@
         <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:40px;">ÚLTIMA EDIÇÃO</p>
         <button onclick="openEdition(0)" style="display:block;width:100%;text-align:left;background:#161616;color:#efe8da;border:none;padding:48px clamp(28px,5vw,64px);">
           <div style="display:flex;gap:16px;align-items:center;font-size:10px;letter-spacing:0.2em;color:#8a8071;margin-bottom:28px;flex-wrap:wrap;">
-            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #003</span>
-            <span>·</span><span>26 JUN 2025</span><span>·</span><span>4 MIN DE LEITURA</span>
+            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #000</span>
+            <span>·</span><span>12 JUN 2026</span><span>·</span><span>3 MIN DE LEITURA</span>
           </div>
           <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,4.4vw,46px);line-height:1.08;max-width:760px;">
-            O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.
+            Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender.
           </h2>
           <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#b8ad97;max-width:620px;margin-top:24px;">
-            A reunião do Fed terminou exatamente como o mercado esperava — em cima do muro. Mas o detalhe que ninguém comentou mudou tudo.
+            Se você está lendo isto, é a primeira edição de muitas. O mercado financeiro não é complicado por acaso — ele é complicado de propósito.
           </p>
           <span style="display:inline-block;margin-top:32px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:#2f9d5b;">LER EDIÇÃO COMPLETA →</span>
         </button>
@@ -142,7 +142,7 @@
       <div style="max-width:1000px;margin:0 auto;">
         <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;">
           <p style="font-size:11px;letter-spacing:0.28em;color:#8a8071;">TODAS AS EDIÇÕES</p>
-          <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">3 EDIÇÕES</span>
+          <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">1 EDIÇÃO</span>
         </div>
         <div id="editions-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
       </div>
@@ -228,42 +228,8 @@
   <script>
     const editions = [
       {
-        label: '#003', date: '26 JUN 2025', read: '4 MIN',
-        title: 'O Fed fez o que sempre faz quando não sabe o que fazer: reuniu 12 pessoas sérias pra não decidir nada. A Intel subiu 10%.',
-        cardTitle: 'O Fed fez o que sempre faz quando não sabe o que fazer…',
-        body: [
-          ['p','Quinta-feira de novo. Café na mão? Então vamos, porque essa semana o mercado americano resolveu ser dramático.'],
-          ['p','O Federal Reserve se reuniu por dois dias para decidir o que fazer com os juros. E decidiu não fazer nada. De novo.'],
-          ['h','O que realmente aconteceu'],
-          ['p','Manter os juros parados não é "não fazer nada". É uma decisão. O Fed está num impasse clássico: se cortar, corre o risco de reacender a inflação; se subir, estrangula a economia.'],
-          ['p','O recado nas entrelinhas: o presidente do Fed sinalizou que dois cortes ainda são possíveis até o fim do ano. Tradução: dinheiro mais barato chegando. As bolsas comemoraram.'],
-          ['q','O mercado não reage ao que o Fed faz. Reage ao que ele deixa escapar que vai fazer.'],
-          ['h','A empresa da semana — Intel'],
-          ['p','A Intel subiu mais de 10% num único dia. Rumores de um aporte pesado para reerguer suas fábricas nos EUA. Depois de anos apanhando da Nvidia e AMD, a gigante adormecida deu sinal de vida.'],
-          ['h','O conceito da semana — "taxa de juros"'],
-          ['p','A taxa de juros é o preço do dinheiro. Quando sobe, pegar emprestado fica caro e a economia esfria. Quando cai, o dinheiro fica barato e a economia esquenta. O Fed mexe nesse botão. Só isso.'],
-          ['p','Até quinta. — O Lobo'],
-        ]
-      },
-      {
-        label: '#002', date: '19 JUN 2025', read: '5 MIN',
-        title: 'A Nvidia virou a empresa mais valiosa do mundo e todo mundo fingiu que não foi uma coisa maluca de acontecer.',
-        cardTitle: 'A Nvidia virou a empresa mais valiosa do mundo…',
-        body: [
-          ['p','Aconteceu de novo, e dessa vez definitivamente: a Nvidia é a empresa mais valiosa do planeta. Passou Apple e Microsoft.'],
-          ['h','Espera, a Nvidia não faz placa de vídeo?'],
-          ['p','Fazia. Hoje ela faz os "cérebros" que treinam toda a inteligência artificial do mundo. Viraram a picareta da nova corrida do ouro.'],
-          ['q','Numa corrida do ouro, não aposte nos garimpeiros. Aposte em quem vende as pás.'],
-          ['h','O número que assusta'],
-          ['p','A empresa vale mais que o PIB de quase todos os países do mundo. É muito dinheiro numa aposta só: a de que a IA vai continuar crescendo no ritmo atual.'],
-          ['h','O conceito da semana — "valor de mercado"'],
-          ['p','Preço da ação × número total de ações = valor de mercado. Não é quanto ela tem no banco — é quanto o mercado acha que ela vale. E o mercado muda de ideia o tempo todo.'],
-          ['p','Até quinta. — O Lobo'],
-        ]
-      },
-      {
-        label: '#001', date: '12 JUN 2025', read: '3 MIN',
-        title: 'Bem-vindo ao O Lobo. Vamos começar pelo começo: por que Wall Street parece feita pra você não entender.',
+        label: '#000', date: '12 JUN 2026', read: '3 MIN',
+        title: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender.',
         cardTitle: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender…',
         body: [
           ['p','Se você está lendo isto, é a primeira edição de muitas. Então deixa eu ser honesto sobre o que isto é — e o que não é.'],
@@ -271,11 +237,11 @@
           ['p','Não é dica de ação pra ficar rico. Não é grupo de Telegram. Não é curso de mil reais. Se você procura isso, fecha aqui sem ressentimento.'],
           ['h','O que isto é'],
           ['p','É uma carta semanal que pega o mais importante do mercado americano e explica em português de gente. Toda quinta-feira, de graça.'],
-          ['q','O mercado financeiro não é complicado por acaso. Ele é complicado de propósito, porque confusão é um ótimo negócio pra quem cobra pra te desconfundir.'],
-          ['p','Os conceitos que importam cabem num guardanapo. Toda semana, mais um pedaço de Wall Street deixa de ser mistério pra você. Bora? — O Lobo'],
+          ['q','O mercado financeiro não é complicado por acaso. Ele é complicado de propósito. Porque quem entende cobra pra te desconfundir.'],
+          ['p','Os conceitos que importam cabem num guardanapo. Toda semana, mais um pedaço de Wall Street deixa de ser mistério pra você. Bora. — O Lobo'],
         ]
       }
-    ];
+    ]
 
     function renderGrid() {
       document.getElementById('editions-grid').innerHTML = editions.map((ed, i) => `
