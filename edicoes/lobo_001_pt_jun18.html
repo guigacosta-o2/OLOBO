@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 10px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 17px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 11px; font-weight: 600; margin-top: 3px; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; letter-spacing: 0.04em; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.dn { color: #C0392B; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@INSTAGRAM</span>
+          <span class="nl-social-pill">@TWITTER</span>
+          <span class="nl-social-pill">@LINKEDIN</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#001</strong> &nbsp;·&nbsp; QUARTA, 18 JUN 2026 &nbsp;·&nbsp; SEMANA DE 11–17 JUN &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      Kevin Warsh estreou como presidente do Fed fazendo o que todo novato inseguro faz: <em>cortou o comunicado pela metade e recusou-se a dar qualquer pista sobre o futuro.</em> Os chips tombaram 10% num dia porque a Broadcom errou por US$ 1,2 bilhão na expectativa de mercado — um bilhão e duzentos milhões. E o petróleo finalmente cedeu um pouco. Arranca, Lobo.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.280</div>
+      <div class="nl-termo-chg dn">−1,4%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">NASDAQ 100</div>
+      <div class="nl-termo-val">25.100</div>
+      <div class="nl-termo-chg dn">−3,1%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Dólar / Real</div>
+      <div class="nl-termo-val">R$ 5,10</div>
+      <div class="nl-termo-chg dn">−0,6%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Petróleo Brent</div>
+      <div class="nl-termo-val">US$ 91</div>
+      <div class="nl-termo-chg dn">−3,2% semana 😅</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- QUEM GANHOU / SE FERROU -->
+    <div class="nl-section-label">Quem Ganhou, Quem Se Ferrou</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os sortudos</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">XOM</span><span class="nl-placar-name">ExxonMobil</span></div><div class="nl-placar-pct up">+3,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">JPM</span><span class="nl-placar-name">JPMorgan</span></div><div class="nl-placar-pct up">+2,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">WMT</span><span class="nl-placar-name">Walmart</span></div><div class="nl-placar-pct up">+2,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">UNH</span><span class="nl-placar-name">UnitedHealth</span></div><div class="nl-placar-pct up">+1,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BRK.B</span><span class="nl-placar-name">Berkshire</span></div><div class="nl-placar-pct up">+1,4%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ Os azarados</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AVGO</span><span class="nl-placar-name">Broadcom</span></div><div class="nl-placar-pct dn">−14,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MRVL</span><span class="nl-placar-name">Marvell</span></div><div class="nl-placar-pct dn">−9,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct dn">−7,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMD</span><span class="nl-placar-name">AMD</span></div><div class="nl-placar-pct dn">−8,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">INTC</span><span class="nl-placar-name">Intel</span></div><div class="nl-placar-pct dn">−5,3%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Semana às avessas: petróleo e bancos seguraram o mercado enquanto a inteligência artificial desabava. O PHLX — índice de chips — caiu 10% num dia. O equivalente a apagar US$ 1,3 trilhão em valor de mercado em 24 horas. Quem tinha ETF de tech foi ao tapete. Quem estava em setores "chatos" dormiu bem. <strong>Às vezes, ser chato é exatamente a estratégia certa.</strong></div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Warsh estreou, <span class="nl-tachado">entregou</span> calou a boca — e o mercado caiu</div>
+      <div class="nl-block-text">
+        <p>Primeira reunião do FOMC com Kevin Warsh como presidente. Juros sem mudança: 3,5%–3,75%. Até aqui, todo mundo esperava. O que ninguém esperava era o comunicado de 130 palavras — uma versão cortada, enxuta, sem forward guidance, sem pistas. Warsh chamou de "mais curto, mais simples". O mercado leu como: <strong>não sei o que vou fazer, então não digo nada.</strong></p>
+        <p>Mas o dot plot falou por ele. Dos 18 membros que submeteram projeções — Warsh recusou-se a publicar a própria, algo inédito — <strong>9 projetam pelo menos uma alta de juros antes do fim de 2026.</strong> A mediana foi de 3,4% para 3,8%. Tradução: a Fed parou de falar em cortes. Agora fala em altas.</p>
+        <p>O S&P caiu 1,2% no mesmo dia. O Treasury de 2 anos subiu 16 pontos-base — o maior salto em meses. O dólar foi o melhor do dia. Warsh prometeu transparência e entregou silêncio. O mercado aceitou da pior forma possível.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Renda fixa americana segue no radar — mas cuidado com quem te diz que "é hora de comprar bond longo". Com metade do comitê querendo subir juros, comprar duration agora é apostar contra o dot plot. <strong>Bond curto (3–6 meses), sim. Bond longo, aguarda.</strong></div>
+      </div>
+    </div>
+
+    <!-- DISSECANDO A EMPRESA -->
+    <div class="nl-section-label">Dissecando a Empresa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">Broadcom — AVGO</div>
+      <div class="nl-block-title">Broadcom: errou por US$ 1,2 bilhão e tombou 15%</div>
+      <div class="nl-block-text">
+        <p>Broadcom publicou resultados na quinta. Receita de IA no próximo trimestre: US$ 16 bilhões. O mercado esperava US$ 17,2 bilhões. A diferença? US$ 1,2 bilhão. Resultado: <strong>−14,8% no mesmo dia, varrendo a empresa do S&P 500 antes mesmo de fechar o mercado.</strong></p>
+        <p>E levou todo mundo junto: Nvidia −7,6% intraday antes de se recuperar. Marvell −9,2%. AMD −8,9%. O PHLX desabou 10% — a maior queda num único dia desde março de 2020. Cerca de US$ 1,3 trilhão em valor de mercado evaporou em 24 horas.</p>
+        <p>O problema não é que a Broadcom está mal. Os números consolidados são robustos: guiou 84% de crescimento de receita ano a ano no próximo trimestre. O problema é que quando o mercado precifica perfeição, qualquer coisa abaixo do perfeito é um desastre. E o mercado estava precificando mais do que perfeição.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Quem tinha SMH ou SOXX capturou a queda sem precisar ter Broadcom na carteira. <strong>ETF diversifica o risco da surpresa — boa ou ruim.</strong> A tese de IA não morreu. Morreu a expectativa irreal de crescimento infinito sem tropeços. Há diferença.</div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Como o Fed hawkish e a queda dos chips são o mesmo filme</div>
+      <div class="nl-block-text">
+        <p>Dois eventos que pareciam separados esta semana na verdade têm a mesma raiz. Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Petróleo caro</strong> (conflito Irã) → inflação americana travada acima de 4% → Fed não pode cortar juros</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Dot plot hawkish</strong> → juros altos por mais tempo → mercado desconta fluxos de caixa futuros mais devagar</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Múltiplos de valuação caem</strong> → empresas de tech (que valem com base no futuro) perdem mais do que outras</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Dólar forte</strong> → real pressionado → seu patrimônio em BRL compra menos dólar que há 6 meses</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>No Brasil:</strong> Petrobras resiste (exporta petróleo), indústria sofre (importa insumos em dólar caro)</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Com dólar em R$ 5,10 e Fed hawkish, a janela de dolarizar parte do patrimônio ainda faz sentido. Não é sobre timing perfeito — é sobre proteção estrutural. <strong>Aportes graduais. O real não vai se valorizar de repente só porque você está esperando a hora certa.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode virar o jogo — ou estragar a semana — nos próximos dias:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">QUA<br>HOJE</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Ata do FOMC — Warsh em detalhe</div>
+            <div class="nl-cal-desc">O texto completo da reunião sai hoje. O mercado vai farrear em cada vírgula pra entender se o tom hawkish é firme ou só pose de estreia.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">QUI</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Resultados da Micron</div>
+            <div class="nl-cal-desc">Único grande de chips que ainda não publicou. Se vier forte, o setor respira. Se decepcionar, a correção tem mais chão pra cair.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">SEX<br>19 JUN</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Assinatura do acordo EUA-Irã (Genebra)</div>
+            <div class="nl-cal-desc">Se assinar, petróleo despenca e a inflação ganha um alívio enorme. Se travar, a guerra energética continua e o Fed mantém o dedo no gatilho.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Três eventos nos próximos dois dias. Qualquer combinação de Micron forte + acordo assinado = mercado explode pra cima. Qualquer combinação oposta = mais sofrimento pra quem está pesado em tech. <strong>Não é semana pra ser herói. É semana pra sentar e assistir.</strong></div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Dot Plot</div>
+        <div class="nl-verb-en">Gráfico de Pontos do FOMC</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>Uma vez por trimestre, cada um dos 19 membros do comitê do Fed publica <em>de forma anônima</em> onde acha que os juros deveriam estar no fim do ano e nos próximos dois anos. Plota um ponto. Os 19 pontos juntos formam o "dot plot" — o mapa de expectativas da Fed. É a ferramenta mais honesta que o mercado tem pra entender pra onde os juros vão.</p>
+        <p>Esta semana o dot plot foi a notícia. <strong>9 dos 18 membros que participaram projetam pelo menos uma alta de juros antes de dezembro de 2026.</strong> A mediana subiu de 3,4% para 3,8%. Warsh nem publicou o seu — disse que tem "visões de longa data" sobre a inutilidade das projeções. Ótimo. O banco central mais importante do mundo foi chefiado por alguém que se recusa a revelar o que pensa sobre juros. Que transparência.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Dotplot março 26</div>
+          <div class="nl-verb-num-val">3,4%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Dotplot junho 26</div>
+          <div class="nl-verb-num-val">3,8%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Por alta</div>
+          <div class="nl-verb-num-val dn">9 de 18</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Ponto do Warsh</div>
+          <div class="nl-verb-num-val" style="font-size:12px; padding-top:2px;">Ausente.<br>Sem precedente.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="#">Cancelar inscrição</a>
+      <a href="#">Política de privacidade</a>
+      <a href="#">@Instagram</a>
+      <a href="#">@Twitter</a>
+      <a href="#">@LinkedIn</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
