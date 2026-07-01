@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #efe8da; font-family: 'Archivo', sans-serif; color: #1c1a17; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { background: #efe8da; font-family: 'Archivo', sans-serif; color: #1c1a17; -webkit-fon-smoothing: antialiased; overflow-x: hidden; }
     ::selection { background: #1c1a17; color: #efe8da; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
     button { font-family: 'Archivo', sans-serif; cursor: pointer; }
@@ -190,7 +190,7 @@
   <div id="view-reading" style="display:none;animation:fadeUp 0.4s ease;">
     <main>
       <article style="max-width:680px;margin:0 auto;padding:56px 32px 40px;">
-        <button onclick="goHome()" style="background:none;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#8a8071;margin-bottom:44px;">← TODAS AS EDIÇÕES</button>
+        <button onclick="window.location='/edicoes/'" style="background:none;border:none;font-size:12px;font-weight:700;letter-spacing:0.12em;color:#8a8071;margin-bottom:44px;">← TODAS AS EDIÇÕES</button>
         <div id="reading-meta" style="display:flex;gap:14px;align-items:center;font-size:10px;letter-spacing:0.18em;color:#8a8071;margin-bottom:24px;flex-wrap:wrap;"></div>
         <h1 id="reading-title" style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(32px,5.2vw,52px);line-height:1.06;color:#1c1a17;"></h1>
         <div style="height:1px;background:#d2c9b7;margin:40px 0;"></div>
