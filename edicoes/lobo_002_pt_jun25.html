@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #002</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 10px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 17px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 11px; font-weight: 600; margin-top: 3px; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@INSTAGRAM</span>
+          <span class="nl-social-pill">@TWITTER</span>
+          <span class="nl-social-pill">@LINKEDIN</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#002</strong> &nbsp;·&nbsp; QUINTA, 25 JUN 2026 &nbsp;·&nbsp; SEMANA DE 18–24 JUN &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      O petróleo despencou de US$ 91 para US$ 73 em seis dias — <em>mais rápido do que a maioria das pessoas conseguiu entender o que estava acontecendo.</em> A Micron entregou resultados históricos e o setor de chips respirou. E o S&P 500 ficou no mesmo lugar, confuso sobre o que pensar. Dissecamos tudo.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.354</div>
+      <div class="nl-termo-chg dn">−0,6%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">NASDAQ 100</div>
+      <div class="nl-termo-val">25.620</div>
+      <div class="nl-termo-chg up">+1,1%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Dólar / Real</div>
+      <div class="nl-termo-val">R$ 5,19</div>
+      <div class="nl-termo-chg dn">−1,7% mês</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Petróleo Brent</div>
+      <div class="nl-termo-val">US$ 73</div>
+      <div class="nl-termo-chg dn">−19% em 30d 📉</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- QUEM GANHOU / SE FERROU -->
+    <div class="nl-section-label">Quem Ganhou, Quem Se Ferrou</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os sortudos</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MU</span><span class="nl-placar-name">Micron</span></div><div class="nl-placar-pct up">+16,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct up">+5,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMD</span><span class="nl-placar-name">AMD</span></div><div class="nl-placar-pct up">+4,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMZN</span><span class="nl-placar-name">Amazon</span></div><div class="nl-placar-pct up">+3,7%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">META</span><span class="nl-placar-name">Meta</span></div><div class="nl-placar-pct up">+2,9%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ Os azarados</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">XOM</span><span class="nl-placar-name">ExxonMobil</span></div><div class="nl-placar-pct dn">−5,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CVX</span><span class="nl-placar-name">Chevron</span></div><div class="nl-placar-pct dn">−4,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">OXY</span><span class="nl-placar-name">Occidental</span></div><div class="nl-placar-pct dn">−4,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SLB</span><span class="nl-placar-name">Schlumberger</span></div><div class="nl-placar-pct dn">−3,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">PBR</span><span class="nl-placar-name">Petrobras</span></div><div class="nl-placar-pct dn">−3,1%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Petróleo despenca → Petrobras sofre. Chips sobem → quem tinha SMH dormiu bem. O mercado inverteu a lógica da semana passada numa canetada. E a Petrobras tá aqui no placar porque o Lobo sabe que você tem ela na carteira. <strong>Diversificação não é opcional — é o que te salva quando o petróleo decide ir embora sem avisar.</strong></div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O petróleo caiu 19% e a Fed <span class="nl-tachado">agradeceu</span> não disse nada</div>
+      <div class="nl-block-text">
+        <p>O Brent fechou esta semana em US$ 73 — o menor valor desde antes da guerra com o Irã começar em fevereiro. A queda foi rápida demais até pra imprensa especializada acompanhar. O catalisador: o acordo de cessar-fogo EUA-Irã assinado na quinta-feira em Genebra começou a mostrar resultados reais, com tráfego de navios no Estrecho de Ormuz subindo gradualmente.</p>
+        <p>O que isso muda pra Fed? <strong>Tudo, potencialmente.</strong> O PCE de maio veio em 4,1% — máxima desde abril de 2023. Grande parte desse número era energia. Se o petróleo ficou abaixo de US$ 75, a leitura de inflação de junho e julho pode ser bem diferente. Menos pressão de preços = menos argumento pra Fed subir juros = dot plot de setembro talvez menos hawkish.</p>
+        <p>Warsh não falou nada sobre petróleo esta semana. Claro que não.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Se o petróleo continuar abaixo de US$ 80 e a inflação ceder no segundo semestre, o Fed terá menos razão pra subir juros. Isso é bom pra bonds, bom pra tech, potencialmente bom pro real. <strong>Mas não é garantido. A guerra ainda não acabou oficialmente, e Warsh ainda tem dedo no gatilho.</strong></div>
+      </div>
+    </div>
+
+    <!-- DISSECANDO A EMPRESA -->
+    <div class="nl-section-label">Dissecando a Empresa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">Micron — MU</div>
+      <div class="nl-block-title">Micron subiu 16% num dia. Já acumula 325% no ano. Alguém avisou você?</div>
+      <div class="nl-block-text">
+        <p>A Micron publicou resultados do terceiro trimestre fiscal na quinta e foi um baita espetáculo. Memória HBM — o tipo de chip que alimenta os processadores de IA da Nvidia — cresceu mais de 50% ano a ano. A demanda de data centers não para. <strong>A ação subiu 16,2% num único dia.</strong></p>
+        <p>Em 12 meses, a MU acumula +325%. Isso não é erro de digitação. A empresa foi durante anos considerada "commodity chata" num setor cíclico. Aí o ciclo virou e virou rápido. Samsung e SK Hynix estão correndo atrás, mas Micron chegou primeiro na corrida de HBM para IA.</p>
+        <p>O mais importante para o setor: os resultados da Micron vieram uma semana depois do susto com Broadcom. O mercado precisava de confirmação de que a demanda por chips de IA é real e crescente. A Micron deu essa confirmação.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Quem tinha SMH ou QQQ capturou parte desse movimento sem saber que seria a Micron o catalizador. <strong>Esse é o ponto do ETF setorial: você não precisa acertar qual empresa vai voar — você só precisa estar no setor.</strong> Se não tá exposto a chips, essa semana foi o lembrete de que o ciclo não acabou.</div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Como o petróleo a US$ 73 chega no seu extrato bancário</div>
+      <div class="nl-block-text">
+        <p>O Brent caiu de US$ 113 no pico da guerra de Irã para US$ 73 esta semana — uma queda de quase 40% em dois meses. Parece boa notícia no geral. E é, mas não pra todo mundo. Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Petróleo cai</strong> → inflação americana recua → Fed menos pressionado pra subir juros</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Fed menos hawkish</strong> → rendimentos dos Treasuries caem → dólar perde um pouco de força</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Dólar menos forte</strong> → real pode se estabilizar (mas ainda em R$ 5,19, longe de recuperar)</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>No Brasil:</strong> Petrobras sofre (petróleo vale menos), indústria respira (insumos importados ficam mais baratos)</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>Para você:</strong> Se tiver Petrobras, sentiu. Se tiver tech, sorriu. Se tiver os dois, ficou confuso — como 80% dos investidores esta semana.</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Com petróleo caindo e real pressionado pelo hawkish do Fed, o cenário é ambíguo. O dólar pode perder força se a inflação ceder — mas isso leva meses, não dias. <strong>Continua fazendo sentido ter dólares na carteira. Só que agora a urgência é menor do que era há seis semanas.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode virar o jogo — ou estragar a semana — nos próximos dias:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">SEG<br>29 JUN</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Nôminas de junho (payrolls)</div>
+            <div class="nl-cal-desc">Publicadas com antecedência por causa do feriado do 4 de julho. Mercado de trabalho forte + inflação caindo = Fed pode respirar. Mercado fraco + inflação alta = dilema clássico de estagflação.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">JUL</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Início da temporada de earnings Q2</div>
+            <div class="nl-cal-desc">Com S&P 500 arriba 9% no ano e analistas projetando 23% de crescimento de lucros, a barra está alta. Bancos abrem a temporada em meados de julho.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">CONT.</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Implementação do acordo EUA-Irã</div>
+            <div class="nl-cal-desc">Assinado, mas o Estrecho de Ormuz ainda não está 100% normalizado. Qualquer contratempo na reabertura do tráfego e o petróleo volta. Monitorar.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">A semana que vem tem payroll + início de earnings + implementação do acordo de paz. São três gatilhos possíveis pra volatilidade. <strong>Não é semana pra jogar dado com a carteira.</strong> É semana de deixar o mercado processar e só entrar depois que o pó baixar.</div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Rendimento Real</div>
+        <div class="nl-verb-en">Real Yield</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>O Treasury americano paga 3,75% ao ano. Parece bom? Paga mais que a poupança, paga em dólar, parece ótimo. Mas o PCE de maio veio em 4,1%. Ou seja: você está ganhando 3,75% e perdendo 4,1% pra inflação. <strong>Rendimento real = negativo. −0,35% pra ser preciso.</strong></p>
+        <p>O rendimento real é o que sobra depois que a inflação come a sua parte. Quando é negativo, o "dinheiro parado" em bonds americanos não é o castelo seguro que parece. Quando é positivo — o que pode acontecer se o petróleo continuar caindo e a inflação recuar — os Treasuries ficam bem mais atraentes.</p>
+        <p>A boa notícia desta semana: com petróleo a US$ 73 e tendendo a cair mais, a inflação energética que estava forçando esse número pra cima pode ceder. Se o PCE de junho vier abaixo de 4%, o rendimento real começa a ficar positivo de novo.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Taxa do Fed</div>
+          <div class="nl-verb-num-val">3,75%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Inflação PCE</div>
+          <div class="nl-verb-num-val">4,1%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Rend. real</div>
+          <div class="nl-verb-num-val" style="color:#C0392B">−0,35%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Se petróleo cai</div>
+          <div class="nl-verb-num-val up" style="font-size:12px; padding-top:2px;">Inflação recua<br>→ real positivo</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="#">Cancelar inscrição</a>
+      <a href="#">Política de privacidade</a>
+      <a href="#">@Instagram</a>
+      <a href="#">@Twitter</a>
+      <a href="#">@LinkedIn</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
