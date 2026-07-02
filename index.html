@@ -121,14 +121,13 @@
     <section id="edicoes" style="padding:24px 32px 40px;scroll-margin-top:80px;">
       <div style="max-width:1000px;margin:0 auto;">
         <p style="text-align:center;font-size:11px;letter-spacing:0.28em;color:#8a8071;margin-bottom:40px;">ÚLTIMA EDIÇÃO</p>
-        <button onclick="openEdition(0)" style="display:block;width:100%;text-align:left;background:#161616;color:#efe8da;border:none;padding:48px clamp(28px,5vw,64px);">
+        <button onclick="window.location='/edicoes/lobo_003_pt_jul02.html'" style="display:block;width:100%;text-align:left;background:#161616;color:#efe8da;border:none;padding:48px clamp(28px,5vw,64px);">
           <div style="display:flex;gap:16px;align-items:center;font-size:10px;letter-spacing:0.2em;color:#8a8071;margin-bottom:28px;flex-wrap:wrap;">
-            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #000</span>
-            <span>·</span><span>12 JUN 2026</span><span>·</span><span>3 MIN DE LEITURA</span>
+            <span style="color:#efe8da;font-weight:700;">EDIÇÃO #003</span>
+            <span>·</span><span>2 JUL 2026</span><span>·</span><span>7 MIN DE LEITURA</span>
           </div>
           <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,4.4vw,46px);line-height:1.08;max-width:760px;">
-            Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender.
-          </h2>
+            O emprego freou — e o mercado respirou</h2>
           <p style="font-family:'Newsreader',serif;font-size:18px;line-height:1.6;color:#b8ad97;max-width:620px;margin-top:24px;">
             Se você está lendo isto, é a primeira edição de muitas. O mercado financeiro não é complicado por acaso — ele é complicado de propósito.
           </p>
@@ -142,7 +141,7 @@
       <div style="max-width:1000px;margin:0 auto;">
         <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;">
           <p style="font-size:11px;letter-spacing:0.28em;color:#8a8071;">TODAS AS EDIÇÕES</p>
-          <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">1 EDIÇÃO</span>
+          <span style="font-size:11px;letter-spacing:0.16em;color:#6f665a;">3 EDIÇÃES</span>
         </div>
         <div id="editions-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
       </div>
@@ -228,6 +227,27 @@
   <script>
     const editions = [
       {
+        label: '#003', date: '2 JUL 2026', read: '7 MIN',
+        title: 'O emprego freou — e o mercado respirou',
+        cardTitle: 'O emprego freou — e o mercado respirou',
+        body: [['p', 'A economia americana criou 57.000 empregos em junho.']],
+        file: '/edicoes/lobo_003_pt_jul02.html'
+      },
+            {
+        label: '#002', date: '25 JUN 2026', read: '6 MIN',
+        title: 'O petróleo caiu 19% e a Micron subiu 16%',
+        cardTitle: 'O petróleo caiu 19% e a Micron subiu 16%',
+        body: [['p', 'O petróleo se derrubou.']],
+        file: '/edicoes/lobo_002_pt_jun25.html'
+      },
+            {
+        label: '#001', date: '18 JUN 2026', read: '6 MIN',
+        title: 'Warsh estreou, os chips tombaram',
+        cardTitle: 'Warsh estreou, os chips tombaram',
+        body: [['p', 'A IA teve sua primeira correção do ano.']],
+        file: '/edicoes/lobo_001_pt_jun18.html'
+      },
+            {
         label: '#000', date: '12 JUN 2026', read: '3 MIN',
         title: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender.',
         cardTitle: 'Bem-vindo ao O Lobo. Por que Wall Street parece feita pra você não entender…',
