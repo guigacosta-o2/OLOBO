@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  O LOBO — EDIÇÃO #007 — 30/07/2026
+  Semana coberta: 23 a 29 de julho de 2026
+  Corte de dados: fechamento de quarta-feira, 29/07/2026
+
+  SUBJECT LINE: Quem vende as picaretas da IA bateu recorde. De novo.
+  PREHEADER: Nasdaq em correção, Coreia do Sul parou a bolsa duas vezes e ninguém quer saber quem ganha a corrida de IA — só quem vende a ferramenta.
+
+  NOTA EDITORIAL: Fed mantido em nota de rodapé nesta edição, por pedido
+  editorial explícito — sem repetir a pauta Fed/petróleo das últimas duas
+  semanas.
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #007</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; flex-wrap: wrap; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 10px; text-align: center; border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6; }
+.nl-termo-item:nth-child(3n) { border-right: none; }
+.nl-termo-item:nth-child(n+4) { border-bottom: none; }
+.nl-termo-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 17px; font-weight: 800; color: #111110; line-height: 1.1; }
+.nl-termo-chg { font-size: 11px; font-weight: 600; margin-top: 3px; }
+.up { color: #111110; }
+.dn { color: #111110; }
+.nt { color: #888780; }
+.nl-termo-chg.up::before { content: '▲ '; font-size: 9px; }
+.nl-termo-chg.dn::before { content: '▼ '; font-size: 9px; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; border: 2px solid #FFFFFF; outline: 1px solid #111110; padding: 15px 18px; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #FFFFFF; }
+.nl-dente-text strong { color: #FFFFFF; font-weight: 800; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #111110; color: #111110; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; display: block; margin-top: 1px; }
+.nl-placar-pct { font-weight: 900; font-size: 13px; color: #111110; white-space: nowrap; padding-left: 8px; }
+.nl-placar-nota { font-size: 10px; color: #888780; margin-top: 10px; line-height: 1.5; }
+
+.nl-leao { border: 2px solid #111110; padding: 18px 20px; margin-top: 4px; }
+.nl-leao-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-leao-title { font-size: 17px; font-weight: 900; color: #111110; line-height: 1.25; margin-bottom: 10px; letter-spacing: -0.01em; }
+.nl-leao-text { font-size: 13px; line-height: 1.75; color: #3a3a38; }
+.nl-leao-text p { margin-bottom: 10px; }
+.nl-leao-text p:last-child { margin-bottom: 0; }
+.nl-leao-text strong { color: #111110; font-weight: 700; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1.05; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: stretch; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 72px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.15; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+.nl-footer-address { margin-top: 14px; font-size: 10px; color: #888780; line-height: 1.6; }
+
+/* ============ MOBILE ============ */
+@media only screen and (max-width: 600px) {
+  body { padding: 0; background: #FFFFFF; }
+  .nl { font-size: 15px; }
+  .nl-header { padding: 22px 20px 16px; }
+  .nl-header-top { flex-direction: column; gap: 12px; }
+  .nl-logo-name { font-size: 36px; }
+  .nl-meta-right { text-align: left; }
+  .nl-social-row { justify-content: flex-start; }
+  .nl-meta-bar { gap: 10px; font-size: 9px; }
+  .nl-manchete { padding: 20px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-termo { grid-template-columns: repeat(2, 1fr); }
+  .nl-termo-item { border-right: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(3n) { border-right: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(2n) { border-right: none; }
+  .nl-termo-item:nth-child(n+4) { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(n+5) { border-bottom: none; }
+  .nl-termo-val { font-size: 16px; }
+  .nl-body { padding: 0 20px; }
+  .nl-block-title { font-size: 19px; }
+  .nl-empresa-nome { font-size: 23px; }
+  .nl-placar-grid { grid-template-columns: 1fr; gap: 18px; }
+  .nl-cadeia-num { min-width: 30px; font-size: 10px; }
+  .nl-cadeia-text { padding: 10px 12px; font-size: 12.5px; }
+  .nl-cal-item { grid-template-columns: 60px 1fr; }
+  .nl-cal-date { font-size: 10px; padding: 12px 5px; }
+  .nl-verb { padding: 20px; }
+  .nl-verb-term { font-size: 24px; }
+  .nl-verb-nums { grid-template-columns: repeat(2, 1fr); }
+  .nl-verb-num-item:nth-child(2n) { border-right: none; }
+  .nl-verb-num-item:nth-child(n+3) { border-top: 1px solid #E8E8E6; }
+  .nl-leao { padding: 16px; }
+  .nl-leao-title { font-size: 16px; }
+  .nl-footer { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@SOMOSLOBO.NEWSLETTER</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#007</strong> &nbsp;·&nbsp; QUINTA, 30 JUL 2026 &nbsp;·&nbsp; SEMANA DE 23–29 JUL &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      O Nasdaq 100 entrou oficialmente em correção esta semana — 11% abaixo da máxima de junho — porque o mercado começou a duvidar se o dinheiro que as Big Techs estão torrando em IA vai virar lucro algum dia. Só que ninguém avisou a Lam Research. A fabricante de máquinas que produz chips bateu recorde de receita pela quarta vez seguida e disparou depois do resultado. <em>A KLA, uma linha de produção adiante, bateu as mesmas metas e apanhou 9% mesmo assim.</em> Na Coreia, a bolsa parou de negociar duas vezes de tanto que caiu. O Fed manteve os juros no meio disso tudo — e sinceramente, quase ninguém prestou atenção.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO DO MERCADO -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.316,15</div>
+      <div class="nl-termo-chg dn">−2,44% semana</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq 100</div>
+      <div class="nl-termo-val">27.192,31</div>
+      <div class="nl-termo-chg dn">−6,23% semana</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Petróleo Brent</div>
+      <div class="nl-termo-val">US$ 90,74</div>
+      <div class="nl-termo-chg dn">−3,54% semana</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Dólar / Real</div>
+      <div class="nl-termo-val">R$ 5,1217</div>
+      <div class="nl-termo-chg up">+1,39% semana</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">173.885</div>
+      <div class="nl-termo-chg dn">−2,06% semana</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500 em R$ · 12m</div>
+      <div class="nl-termo-val">37% do CDI</div>
+      <div class="nl-termo-chg nt">12m · +5,48% vs. CDI 14,72%</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- PREDADORES / PRESAS -->
+    <div class="nl-section-label">Predadores &amp; Presas</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label">▲ Predadores</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">LRCX</span><span class="nl-placar-name">Lam Research · receita recorde e guidance 1 bi acima do consenso</span></div><div class="nl-placar-pct">+5,3%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SHW</span><span class="nl-placar-name">Sherwin-Williams · lucro do 2º tri veio bem acima do esperado</span></div><div class="nl-placar-pct">+8,3%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">F</span><span class="nl-placar-name">Ford · resultado forte e elevou o guidance do ano</span></div><div class="nl-placar-pct">+5,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">KO</span><span class="nl-placar-name">Coca-Cola · lucro por ação acima do consenso</span></div><div class="nl-placar-pct">+5,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BA</span><span class="nl-placar-name">Boeing · receita bateu apesar do prejuízo maior que o previsto</span></div><div class="nl-placar-pct">+4,8%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label">▼ Presas</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SNDK</span><span class="nl-placar-name">SanDisk · continuação de uma queda que já dura um mês</span></div><div class="nl-placar-pct">−14,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">KLAC</span><span class="nl-placar-name">KLA · bateu estimativas e caiu 9% mesmo assim, por causa da margem</span></div><div class="nl-placar-pct">−9,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CAT</span><span class="nl-placar-name">Caterpillar · rebaixamento de analista</span></div><div class="nl-placar-pct">−6,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMD</span><span class="nl-placar-name">AMD · pressão geral sobre quem desenha o chip, não quem o fabrica</span></div><div class="nl-placar-pct">−5,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">DE</span><span class="nl-placar-name">Deere · guidance cauteloso e commodities agrícolas em queda</span></div><div class="nl-placar-pct">−4,5%</div></div>
+        </div>
+      </div>
+      <div class="nl-placar-nota">Variações referentes ao movimento em destaque de cada ativo na semana de 23 a 29 de julho.</div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Repara na primeira posição da coluna da esquerda e na segunda da direita: <strong>Lam Research e KLA são praticamente a mesma empresa em setores vizinhos, divulgaram números parecidos, e o mercado tratou uma como heroína e a outra como vilã.</strong> Não é sobre quem fabricou o melhor resultado. É sobre quem convenceu o mercado de que o próximo trimestre vai ser ainda melhor. Bater a meta de ontem não paga mais o aluguel — só o guidance de amanhã.</div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-block">
+      <div class="nl-leao">
+        <div class="nl-leao-kicker">A mordida que vem do Brasil</div>
+        <div class="nl-leao-title">A Lam Research paga dividendo. Trinta por cento nunca sai dos EUA.</div>
+        <div class="nl-leao-text">
+          <p>Empresa da semana também distribui provento — modesto, US$ 0,26 por trimestre, mas existe. E é uma ótima desculpa pra falar de uma mordida que a maioria só descobre quando confere o extrato e o valor não bate. <strong>Todo dividendo pago por empresa americana a investidor estrangeiro sofre retenção automática de 30% na fonte, direto pelo IRS, antes de qualquer centavo sair dos Estados Unidos.</strong> Não é uma taxa da sua corretora. É a regra padrão dos EUA para não-residente, e o Brasil não tem tratado bilateral que reduza esse percentual — outros países conseguem 15% ou menos por acordo; o brasileiro paga a alíquota cheia.</p>
+          <p>Repara na mecânica: <strong>essa retenção acontece nos EUA, não no Brasil.</strong> É completamente diferente do ganho de capital na venda da ação, que você só declara e paga (15%, apuração anual, sem a antiga isenção de R$ 35 mil) quando decide vender. O dividendo já chega descontado — você nunca vê o valor cheio passar pela sua conta.</p>
+          <p>Isso muda a matemática de decorar "dividend yield" de ação americana achando que é tudo seu. Um yield anunciado de 0,33% já virou, na prática, algo em torno de 0,23% líquido antes mesmo de pensar em imposto brasileiro sobre o rendimento recebido do exterior — que também existe e tem regra própria. Ninguém anuncia isso na manchete do gráfico bonito.</p>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Se sua tese de investimento em ação americana depende do dividendo pra fazer sentido, faça a conta com os 30% já cortados — não com o número que aparece no site de research. <strong>Ação de crescimento que não paga dividendo, ironicamente, tira esse problema da equação inteira.</strong> Isso não é conselho tributário, é aritmética de recibo — pro resto, fala com seu contador.</div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED (nota de rodapé nesta edição) -->
+    <div class="nl-section-label">A Novela do Fed — em uma frase</div>
+    <div class="nl-block">
+      <div class="nl-block-text">
+        <p>Pra constar, porque foi notícia: na quarta o Fed manteve os juros em 3,50%–3,75% pela quinta reunião seguida, com <strong>3 dos 12 votos dissidentes pedindo alta</strong> — a maior dissidência em uma década. O mercado caiu no dia, o Dow teve o pior pregão desde abril de 2025. Só que essa não é a história desta edição: quem realmente mexeu com o seu bolso essa semana foi o setor de chips, não o comunicado do FOMC. Seguimos.</p>
+      </div>
+    </div>
+
+    <!-- EMPRESA SOB A LUPA -->
+    <div class="nl-section-label">Empresa Sob a Lupa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">Lam Research &amp; KLA — quem vende as máquinas</div>
+      <div class="nl-block-title">Duas fabricantes de equipamento, dois resultados fortes, dois vereditos opostos</div>
+      <div class="nl-block-text">
+        <p>Terça-feira, dia 28: a <strong>KLA</strong> — fabricante de equipamento de controle de qualidade pra fábrica de chip — divulgou receita recorde de US$ 3,66 bi, bateu o lucro por ação em 5% e ainda elevou o guidance. A ação caiu 6,18% no pregão regular e mais 7,74% no after-hours. Motivo oficial: preocupação com a margem e o mix de produto. Motivo real: o setor inteiro estava em modo de venda e ninguém queria saber de detalhe.</p>
+        <p>Quarta-feira, dia 29, poucas horas depois do Fed: a <strong>Lam Research</strong> — concorrente direta, no mesmo pedaço da cadeia de suprimentos — divulgou receita recorde de US$ 6,72 bi (+30% a/a), a maior margem bruta em vinte anos, e um guidance para o próximo trimestre quase US$ 1 bilhão acima do consenso. A ação, que também vinha caindo 20–30% no mês junto com o resto do setor, disparou no after-hours.</p>
+        <p>Duas empresas do mesmo nicho — equipamento para fabricar chip, não o chip em si — reportando praticamente ao mesmo tempo, ambas batendo estimativas. Uma apanhou. A outra foi carregada nos ombros. <strong>A diferença não foi o resultado do trimestre que passou. Foi o tamanho do "e agora" que cada uma prometeu para o próximo.</strong> A KLA confirmou o esperado. A Lam disse que o esperado estava baixo demais — e junto elevou a projeção setorial de gasto global em equipamento de fabricação de chip (WFE) para perto de US$ 150 bilhões em 2026.</p>
+        <p>O pano de fundo que explica por que isso mexe com todo mundo: o Nasdaq 100 está em correção porque o mercado desconfia se o capex bilionário em infraestrutura de IA das Big Techs vai virar retorno. Só que quem vende a máquina pra fabricar o chip que roda essa infraestrutura não depende de adivinhar quem vai ganhar a corrida de IA — depende só de que a corrida continue existindo. <strong>É a diferença entre apostar no vencedor da corrida do ouro e vender a picareta pra todo mundo que participa.</strong></p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Não existe mais "bateu a estimativa, subiu" nesse mercado. <strong>A KLA provou isso da pior forma: bater o número de ontem virou o mínimo aceitável, não motivo de festa.</strong> Se você tem exposição a semicondutores via ETF (SMH, SOXX), vale menos tempo lendo manchete de "quem bateu ou perdeu" e mais tempo entendendo se a empresa está no pedaço da cadeia que cresce mesmo que o "vencedor" da IA mude de nome no ano que vem.</div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O medo de bolha de IA pulou o Pacífico — e a bolsa da Coreia parou duas vezes</div>
+      <div class="nl-block-text">
+        <p>Enquanto Wall Street discutia se o capex de IA vale o preço, a mesma desconfiança atravessou o oceano e bateu com muito mais força na cadeia de suprimento asiática. <strong>O Kospi, índice principal da Coreia do Sul, acionou circuit breaker por dois pregões seguidos.</strong> Segue o fio de como o seu ETF de tecnologia sentiu isso sem você nunca ter comprado uma ação coreana:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Nasdaq 100 entra em correção nos EUA</strong> → mercado passa a exigir prova de retorno do capex de IA, não só a promessa</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>A desconfiança atravessa o Pacífico</strong> → o Kospi (Coreia do Sul) despenca e aciona circuit breaker, parando o pregão, por dois dias seguidos</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>SK Hynix cai quase 13%, Samsung quase 8%</strong> → os dois maiores fabricantes de memória do planeta, fornecedores de praticamente toda Big Tech americana</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>A cadeia inteira sofre em bloco:</strong> chip-designer (AMD), memória (SanDisk, SK Hynix) e parte do equipamento (KLA) caem juntos — o pânico não distingue quem realmente errou</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>No seu ETF:</strong> quem tem QQQ, SMH ou SOXX sentiu o solavanco global mesmo sem nunca ter comprado uma ação asiática — a exposição é indireta, mas é real</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">06</div>
+          <div class="nl-cadeia-text"><strong>E olha quem atravessou praticamente imune:</strong> a Lam Research, do outro lado do mundo, disparou no mesmo dia em que a Ásia parava de negociar</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Circuit breaker soa dramático, e é — mas existe justamente pra isso: parar o pregão, dar um tempo pro pânico esfriar, e evitar que todo mundo venda ao mesmo preço ruim ao mesmo tempo. <strong>Não é sinal de que o sistema quebrou. É o sistema fazendo o trabalho pra que ele não quebre.</strong> Se você segura ETF de tecnologia global, essa semana foi o lembrete de que "diversificado" às vezes só significa "correlacionado com um atraso de um dia".</div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">Três coisas que decidem se a correção dos chips vira poeira ou vira tendência:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">31<br>JUL</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Reação a Apple e Amazon — os últimos dois da fila</div>
+            <div class="nl-cal-desc">Ambas reportam na quinta, 30/07, após o fechamento — mesmo dia desta edição. Depois de Microsoft surpreender bem e Meta decepcionar com o capex, o mercado vai comparar as quatro Big Techs lado a lado. Quem prometer gasto sem mostrar retorno correspondente sai pior.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">03<br>AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">ISM Manufacturing PMI de julho</div>
+            <div class="nl-cal-desc">Primeiro indicador relevante da semana que vem. Se vier fraco, reforça a narrativa de desaceleração que já pesa sobre o setor industrial — Caterpillar e Deere que o digam.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">07<br>AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Payroll de julho — um pouco mais à frente, mas já no radar</div>
+            <div class="nl-cal-desc">Sai só na sexta que vem, não nesta semana — mas depois do payroll fraco de junho (57 mil vagas), o mercado já está de olho. Se vier fraco de novo, a conversa muda de "bolha de IA" pra "a economia real está desacelerando", e isso pesa em tudo, não só em chip.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Última leva de resultados de megacap + PMI + payroll batendo na porta em dez dias é bastante gatilho pra volatilidade. <strong>Não é hora de decidir que "chip acabou" nem que "chip está barato" com base numa semana só.</strong> Deixa os dados se acumularem antes de mexer na carteira por causa de manchete.</div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">WFE</div>
+        <div class="nl-verb-en">Wafer Fabrication Equipment</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>WFE é a sigla que a Lam Research e a KLA repetiram trimestre atrás de trimestre: <strong>o gasto global das fábricas de chip em máquinas de fabricação de semicondutor</strong> — as prensas, os fornos, os equipamentos de litografia e controle de qualidade que transformam uma bolacha de silício em processador. Não é o chip. É a máquina que faz o chip.</p>
+        <p>O número que importou essa semana: a Lam Research elevou a projeção de WFE global pra 2026 pra perto de <strong>US$ 150 bilhões</strong>, com viés de alta. Isso é o mercado inteiro de equipamento — Lam, KLA, Applied Materials, Tokyo Electron e companhia — dividindo entre si. E cresce fatia relevante independente de qual empresa de IA "vence" a corrida, porque toda fábrica de chip nova ou expandida precisa comprar essas máquinas, não importa pra quem vende depois o processador.</p>
+        <p>É por isso que "empresa de equipamento" é uma categoria diferente de "empresa de chip" dentro do mesmo ETF de semicondutores. Nvidia, AMD e Micron competem entre si e apostam em quem a IA vai preferir. Lam, KLA e Applied Materials vendem a ferramenta pra todas elas ao mesmo tempo — <strong>ganham com o volume da corrida, não com o resultado dela.</strong></p>
+        <p>Isso não torna a categoria imune, como a própria KLA provou essa semana ao cair mesmo batendo estimativa. Mas explica por que, num ano em que "bolha de IA" virou frase feita, o gasto em equipamento continua sendo revisado <em>pra cima</em>, não pra baixo. <strong>E no dia em que a bolha estourar de verdade — se estourar — alguém ainda vai precisar comprar a próxima máquina pra fabricar o que vier depois dela. A pá não pergunta o que você vai cavar com ela. Só quer ser vendida.</strong></p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">WFE 2026 (revisado)</div>
+          <div class="nl-verb-num-val">~US$ 150 bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Receita Lam Research</div>
+          <div class="nl-verb-num-val">US$ 6,72 bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Crescimento a/a</div>
+          <div class="nl-verb-num-val">+30%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Guidance vs. consenso</div>
+          <div class="nl-verb-num-val" style="font-size:12px; padding-top:2px;">+US$ 1 bi<br>Ninguém esperava.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      O que está aqui sobre imposto é informação geral, não assessoria tributária — a sua situação tem detalhes que só o seu contador conhece.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Responde esse email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://somoslobo.com/privacidade">Política de privacidade</a>
+      <a href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+    </div>
+    <div class="nl-footer-address">
+      {{ address }}
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
