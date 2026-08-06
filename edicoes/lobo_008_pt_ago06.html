@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--
+  SUBJECT: Bateram recorde e correram pro ouro 🥇
+  PREHEADER: S&P na máxima, ouro +4% no mesmo dia, SpaceX estreia no vermelho e o Copom corta juro. Wall Street ao contrário de sempre.
+
+  [VERIFICAR / notas de dados desta edição #008 — não visíveis ao leitor]
+  - S&P 500 e Nasdaq: variação semanal = fechamento 05/08 vs. corte da #007 (29/07). S&P 7.313→7.723,55 (+5,6%); Nasdaq Composite 24.438→26.363,44 (+7,9%).
+  - Nasdaq: rótulo "Nasdaq" com valor do Composite (correção silenciosa da série; NÃO chamar atenção no texto).
+  - Brent 05/08 ~US$ 79,15 (queda ~5%/sessão seg-ter em Ormuz); semana 87,37→79,15 = -9,4%.
+  - Ouro 05/08 ~US$ 4.244 (fech. 5pm ET 4.243,55); +4% só na quarta; semana 4.094→4.244 = +3,7%.
+  - Ibovespa 177.726,17 (-0,09% no dia; +0,7% na semana). USD/BRL spot venda R$ 5,128 (PTAX ~R$ 5,13 — confirmar dígito final).
+  - CDI acum. 12m = 14,72% (Partnr 30/07; debit 14,70%). Selic cortada p/ 14,00% em 05/08 (Copom).
+  - S&P 12m em R$ como % do CDI: S&P USD 12m ~+20,5% (base ago/25 ~6.409 média mensal Multpl; fech. 05/08 7.723,55); real ~+6% mais forte (USD/BRL ago/25 ~R$ 5,45 → hoje ~5,13); retorno em R$ ~+13,4%; /CDI 14,72% ≈ 91% → arredondado "≈90% do CDI". Estimativa sensível às entradas (faixa ~84-105%): manter enquadramento "empatou/perdeu levemente pro CDI".
+  - Altas/Baixas: % são o movimento definidor da semana (majoritariamente reação a balanço). MSFT +16% (30/07, Azure); demais em 05/08.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #008</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; flex-wrap: wrap; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 8px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 15px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 10px; font-weight: 600; margin-top: 3px; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-leao-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 4px 0 14px; }
+.nl-leao-card { border: 1.5px solid #111110; padding: 12px 14px; }
+.nl-leao-card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-leao-card-val { font-size: 20px; font-weight: 900; color: #111110; line-height: 1; letter-spacing: -0.02em; }
+.nl-leao-card-sub { font-size: 10px; color: #888780; margin-top: 4px; line-height: 1.3; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+.nl-verb-num-val.dn { color: #C0392B; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+
+/* ---- MOBILE ---- */
+@media only screen and (max-width: 600px) {
+  body { padding: 0; }
+  .nl-header, .nl-manchete, .nl-body, .nl-footer { padding-left: 20px; padding-right: 20px; }
+  .nl-logo-name { font-size: 34px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-termo { grid-template-columns: repeat(3, 1fr); }
+  .nl-termo-item { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(3n) { border-right: none; }
+  .nl-termo-val { font-size: 16px; }
+  .nl-block-title { font-size: 20px; }
+  .nl-empresa-nome { font-size: 24px; }
+  .nl-leao-grid { grid-template-columns: 1fr; }
+  .nl-verb-nums { grid-template-columns: repeat(2, 1fr); }
+  .nl-verb-num-item:nth-child(2) { border-right: none; }
+  .nl-verb-num-item:nth-child(1), .nl-verb-num-item:nth-child(2) { border-bottom: 1px solid #E8E8E6; }
+  .nl-cal-item { grid-template-columns: 56px 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@somoslobo.newsletter</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#008</strong> &nbsp;·&nbsp; QUINTA, 6 AGO 2026 &nbsp;·&nbsp; SEMANA DE 30 JUL–5 AGO &nbsp;·&nbsp; LEITURA <strong>~7 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      O S&amp;P 500 e o Dow bateram máxima histórica na terça. No mesmo pregão, o ouro disparou 4% — a maior tacada em um dia em seis meses — e o dólar foi pra mínima de 6 semanas. <em>Traduzindo: o mercado abriu o champanhe do recorde e, com a outra mão, comprou seguro.</em> Aí veio a quarta: a SpaceX estreou seu primeiro balanço público mostrando US$ 18,4 bi de capex (6x mais!) e tombou 13%. A AMD levou 7%. E o emprego privado veio pela metade. Recorde com medo do próprio recorde. Arranca.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&amp;P 500</div>
+      <div class="nl-termo-val">7.724</div>
+      <div class="nl-termo-chg up">+5,6% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq</div>
+      <div class="nl-termo-val">26.363</div>
+      <div class="nl-termo-chg up">+7,9% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Brent</div>
+      <div class="nl-termo-val">US$ 79</div>
+      <div class="nl-termo-chg dn">−9,4% sem. 📉</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ouro</div>
+      <div class="nl-termo-val">US$ 4.244</div>
+      <div class="nl-termo-chg up">+3,7% sem. 📈</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">177.726</div>
+      <div class="nl-termo-chg up">+0,7% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&amp;P 12m (R$)</div>
+      <div class="nl-termo-val">≈90%</div>
+      <div class="nl-termo-chg nt">do CDI acum.</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- PREDADORES / PRESAS -->
+    <div class="nl-section-label">Predadores &amp; Presas</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os predadores</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MSFT</span><span class="nl-placar-name">Microsoft</span></div><div class="nl-placar-pct up">+16,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BKNG</span><span class="nl-placar-name">Booking</span></div><div class="nl-placar-pct up">+6,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct up">+3,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">DIS</span><span class="nl-placar-name">Disney</span></div><div class="nl-placar-pct up">+3,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMGN</span><span class="nl-placar-name">Amgen</span></div><div class="nl-placar-pct up">+3,0%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ As presas</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">PODD</span><span class="nl-placar-name">Insulet</span></div><div class="nl-placar-pct dn">−17,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SPCX</span><span class="nl-placar-name">SpaceX</span></div><div class="nl-placar-pct dn">−13,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CDW</span><span class="nl-placar-name">CDW</span></div><div class="nl-placar-pct dn">−12,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">AMD</span><span class="nl-placar-name">AMD</span></div><div class="nl-placar-pct dn">−7,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">GOOGL</span><span class="nl-placar-name">Alphabet</span></div><div class="nl-placar-pct dn">−4,6%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Reparou o padrão? Quem <strong>vende nuvem</strong> subiu (Microsoft +16% com a Azure estourando), quem <strong>vende hardware</strong> apanhou (AMD, e a estreante SpaceX afundando por gastar demais em chip). Do lado brasileiro, a Petrobras sentiu o Brent cair 9% na semana — petróleo mais barato, menos receita por barril, sem drama e sem subida. <strong>Mesmo "tema de IA", resultados opostos. De novo.</strong></div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO (fiscal / Brasil) -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O Copom cortou pra 14%. E mesmo assim o CDI ganhou do S&amp;P.</div>
+      <div class="nl-block-text">
+        <p>Enquanto o americano discute <em>subir</em> juros, o Brasil está no caminho contrário: na quarta, o Copom cortou a Selic de 14,25% para <strong>14,00%</strong>. Continua altíssima em termos globais — e é aí que mora a piada desta edição.</p>
+        <p>Faça as contas com a gente. Quem comprou S&amp;P 500 há 12 meses e converteu pra dólar ganhou uns <strong>+20% em dólar</strong>. Sucesso, né? Só que o real se fortaleceu no período. Convertido de volta pra reais, aquele ganho encolhe para cerca de <strong>+13%</strong>. E o CDI, a renda fixa mais preguiçosa do planeta, rendeu <strong>~14,7%</strong> no mesmo período — sem susto, sem volatilidade, sem madrugada perdida olhando gráfico.</p>
+        <p>Ou seja: você tomou risco de bolsa gringa, aguentou o solavanco, e ficou <strong>abaixo do CDI</strong>. O câmbio comeu a diferença.</p>
+      </div>
+      <div class="nl-leao-grid">
+        <div class="nl-leao-card">
+          <div class="nl-leao-card-label">S&amp;P 12m em US$</div>
+          <div class="nl-leao-card-val">~+20%</div>
+          <div class="nl-leao-card-sub">Parece ótimo</div>
+        </div>
+        <div class="nl-leao-card">
+          <div class="nl-leao-card-label">S&amp;P 12m em R$</div>
+          <div class="nl-leao-card-val">~+13%</div>
+          <div class="nl-leao-card-sub">O real forte cortou o ganho</div>
+        </div>
+        <div class="nl-leao-card">
+          <div class="nl-leao-card-label">CDI 12m</div>
+          <div class="nl-leao-card-val">~14,7%</div>
+          <div class="nl-leao-card-sub">Sem risco. E ganhou.</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Não estamos dizendo pra abandonar dólar — diversificar continua fazendo sentido. Estamos dizendo que o discurso de "põe tudo no dólar que é sopa" ignora um detalhe chato: <strong>o câmbio corta dos dois lados.</strong> Nos últimos 12 meses, ele cortou contra quem dolarizou. Da próxima vez que um "guru" prometer riqueza garantida na bolsa americana, lembre que o CDI, esse chato, acabou de ganhar a corrida.</div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">44 mil empregos. O mercado <span class="nl-tachado">entrou em pânico</span> comemorou.</div>
+      <div class="nl-block-text">
+        <p>O relatório ADP de julho saiu na quarta: <strong>44 mil</strong> vagas no setor privado. O mercado esperava uns 65 mil, e junho tinha vindo com 95 mil. Emprego claramente esfriando. E o mercado, claro, gostou — porque emprego fraco = Fed com menos munição pra apertar.</p>
+        <p>Aqui é onde a novela fica boa. Há três semanas, o petróleo tinha disparado pra US$ 87 e o mercado precificava mais de <strong>80% de chance de ALTA de juros</strong> em setembro. Sim, alta. O Fed do Warsh segurou os juros em 3,50–3,75% em julho num voto 9–3 — com <strong>três diretores querendo subir</strong> —, e setembro (15–16) segue como reunião viva. Aí o petróleo desabou pra US$ 79 nesta semana, o emprego veio fraco, e as apostas de alta murcharam. Kevin Warsh continua economizando palavras. Jeffrey Schmid, do Fed de Kansas City, resolveu falar grosso: disse que ainda falta apertar. Ninguém ligou.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">É o mundo ao contrário do Brasil: aqui o BC <strong>corta</strong>, lá o Fed ainda ameaça <strong>subir</strong>. E tudo isso gira em torno de um barril de petróleo que muda de humor a cada tuíte sobre Ormuz. <strong>Quem tenta cronometrar juro americano com base em manchete de guerra vai passar 2026 inteiro trocando de opinião. Não seja essa pessoa.</strong></div>
+      </div>
+    </div>
+
+    <!-- EMPRESA SOB A LUPA -->
+    <div class="nl-section-label">Empresa Sob a Lupa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">SpaceX — SPCX</div>
+      <div class="nl-block-title">A empresa de foguetes estreou na bolsa gastando como data center. E levou vaia.</div>
+      <div class="nl-block-text">
+        <p>Primeiro balanço da SpaceX como empresa aberta. O mercado descobriu que a "empresa de foguetes" virou, na prática, uma <strong>máquina de queimar dinheiro em IA</strong>: o capex saltou <strong>6x, para US$ 18,4 bilhões</strong> em um trimestre — boa parte em infraestrutura de inteligência artificial. A ação despencou <strong>13,6%</strong> no dia. Musk gastando fortuna de novo, e o mercado de novo sem saber se aplaude ou foge.</p>
+        <p>Pra piorar o roteiro: o <strong>lock-up vence amanhã</strong>. Traduzindo, os funcionários e investidores antigos, que estavam proibidos de vender, ganham o direito de despejar até 20% das ações travadas — algo como 911 milhões de papéis podendo bater no mercado. Ação caindo + comporta de vendas abrindo é uma combinação que raramente termina com fogos de artifício.</p>
+        <p>E não é só a SpaceX. O SK Hynix elevou o capex em 50%. Michael Burry — o cara que shortou o mercado imobiliário em 2008 e virou filme — está apostando contra Nvidia, Palantir e Micron, avisando que vem uma "queda tipo 1987". O mercado adora IA. Mas começou a torcer o nariz pra <em>quem paga a conta</em> da IA.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">O mesmo capex de US$ 18,4 bi é chamado de "visão de futuro" quando a ação sobe e de "gastança insensata" quando a ação cai. <strong>Nada mudou na empresa entre uma coisa e outra — mudou o humor de quem olha. Antes de comprar a próxima promessa de IA, pergunte: essa empresa está faturando com IA, ou só gastando com IA? São coisas bem diferentes.</strong></div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Ouro em máxima. Bolsa em máxima. No mesmo dia. Alguém aí sente o cheiro de nervosismo?</div>
+      <div class="nl-block-text">
+        <p>Normalmente ouro e ações andam em direções opostas: um é o medo, o outro é a ganância. Esta semana os dois bateram no teto juntos — o ouro pulou 4% num dia só, o maior salto em seis meses, enquanto o S&amp;P fazia recorde. Isso não é coincidência. Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Emprego fraco (+44k) + Ormuz destravando</strong> → menos medo de inflação e de juro alto nos EUA</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Dólar cai pra mínima de 6 semanas</strong> → ouro dispara (quando o dólar enfraquece, o metal brilha)</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Dólar mais fraco</strong> → moedas da América Latina ganham fôlego — peso mexicano no melhor nível desde junho, real firme perto de R$ 5,13</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Mas atenção:</strong> dólar barato não conserta problema estrutural de país nenhum. É alívio, não cura</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>No seu bolso:</strong> real forte é bom pra inflação e pra importado — e é exatamente o que fez seu S&amp;P em reais perder pro CDI (ver acima)</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Ouro batendo recorde <strong>junto</strong> com a bolsa é o mercado dizendo, na cara dura: "compro a festa, mas não largo o guarda-chuva". É o dinheiro esperto participando do rali e, ao mesmo tempo, comprando seguro. <strong>Faça igual: dá pra estar dentro sem estar desprotegido. Quem entra sem seguro é o primeiro a gritar quando a música para.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode estragar — ou confirmar — a euforia de agosto nos próximos dias:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">~12 AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">CPI de julho — a hora da verdade</div>
+            <div class="nl-cal-desc">O petróleo subiu forte em julho antes de cair. Se esse susto apareceu nos preços, o CPI vem quente e a conversa de ALTA de juros em setembro ressuscita. Se veio comportado, a festa continua. É o dado que decide o humor do mês.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">DIAS</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Acordo de Ormuz — os tais "60 dias"</div>
+            <div class="nl-cal-desc">EUA, Irã e Omã estão perto de um acordo interino de 60 dias pra reabrir o Estreito. Trump prometeu novidade "em 48h". Se sair, o Brent cai mais. Se furar, o barril sobe US$ 5 antes do café da manhã. É o gatilho que move tudo.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">MED. AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">PPI + varejo americano (Walmart, Target)</div>
+            <div class="nl-cal-desc">A inflação no atacado e os balanços das gigantes do varejo mostram se o consumidor gringo ainda aguenta o tranco. Margem apertada aqui e a narrativa de "economia forte" começa a rachar.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Detalhe que o vendedor de sonho não te conta: de <strong>agosto a outubro</strong> historicamente é o pior trimestre do S&amp;P, segundo o próprio Bank of America. Recorde em agosto + sazonalidade ruim não é motivo pra pânico — é motivo pra <strong>rebalancear com calma, sem FOMO. Comprar no topo porque "tá subindo" é como pular na piscina sem checar se tem água.</strong></div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Melt-up</div>
+        <div class="nl-verb-en">Alta Eufórica</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>"Melt-up" é o primo eufórico do "meltdown". No meltdown, todo mundo vende porque todo mundo está vendendo, e o mercado derrete pra baixo. No <strong>melt-up</strong>, acontece o contrário: todo mundo compra porque todo mundo está comprando, o preço derrete <em>pra cima</em>, e ninguém quer ser o único otário de fora da festa. É o FOMO virando política monetária pessoal.</p>
+        <p>O sinal clássico? Recordes seguidos empurrados por poucas ações gigantes, enquanto os fundamentos (emprego, lucro, capex) piscam amarelo lá atrás. Esta semana teve tudo: S&amp;P e Dow na máxima, a Nasdaq subindo quase 8% em cinco pregões — <strong>e o "índice do medo" (VIX) subindo junto com a bolsa</strong>, o que é raro e costuma aparecer perto de topos. A própria CNBC descreveu como "um movimento violento de alta, do tipo que se vê em grandes topos de mercado".</p>
+        <p>Melt-up não é ruim por definição. Dá dinheiro de verdade — enquanto dura. O problema é que ninguém toca o sino avisando que acabou. Você só descobre depois. De preferência, olhando o extrato.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Nasdaq (5 pregões)</div>
+          <div class="nl-verb-num-val up">+7,9%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Ouro no dia</div>
+          <div class="nl-verb-num-val up">+4%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">VIX (medo)</div>
+          <div class="nl-verb-num-val dn">Subindo 😬</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">S&amp;P 12m em R$</div>
+          <div class="nl-verb-num-val" style="font-size:12px; padding-top:2px;">Perdeu<br>pro CDI.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://somoslobo.com/privacidade">Política de privacidade</a>
+      <a href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+    </div>
+    <div class="nl-footer-text" style="margin-top:14px;">{{ address }}</div>
+  </div>
+
+</div>
+</body>
+</html>
