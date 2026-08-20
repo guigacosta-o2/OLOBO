@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #010</title>
+<!--
+  SUBJECT LINE: 🐺 O Tesouro americano comprou a própria dívida. E o dólar desabou.
+  PREHEADER: Juro de 30 anos na máxima em 19 anos, dívida dos EUA passa de US$ 40 tri — e uma vacina de câncer faz a Moderna subir 177% num dia.
+
+  DADOS (fechamento quarta 19/08/2026) — fontes: B3/Cetip (CDI), BCB PTAX (USD/BRL), Yahoo/CNBC/TradingEconomics (índices, commodities).
+  COMPOSTO S&P-12m-em-R$ / % do CDI acumulado 12m:
+    - S&P 500: 7.707,98 hoje; +20,6% em US$ nos últimos 12 meses (base ~6.390 em ago/2025).
+    - USD/BRL: R$ 5,18 hoje vs. ~R$ 5,42 há 12 meses (reconstrução da série PTAX; travar com SGS/BCB para 19/08/2025 antes do envio).
+    - CDI acumulado 12m: ~14,7% (Selic meta 14,00%; CDI over 13,90%).
+    - Retorno S&P em R$ (12m) ≈ +15,3% → composto ≈ 104% do CDI.
+    - Sensibilidade: banda ~99%–114% conforme PTAX exato de ago/2025. NÃO expor número ao leitor além do arredondado ~104%.
+  FLAGS:
+    - % semanais de SNDK e BNTX (predadores) e ORCL (presa) aproximados — confirmar antes do envio.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; flex-wrap: wrap; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 8px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 4px; line-height: 1.2; }
+.nl-termo-val { font-size: 16px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 10px; font-weight: 600; margin-top: 3px; line-height: 1.2; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; border: 1.5px solid #FFFFFF; outline: 1px solid #111110; padding: 16px 18px; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; font-style: italic; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-leao { margin-top: 4px; background: #F7F7F5; border: 1.5px solid #111110; padding: 22px 24px; }
+.nl-leao-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #888780; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.nl-leao-kicker::before { content: ''; width: 22px; height: 3px; background: #111110; }
+.nl-leao-title { font-size: 19px; font-weight: 900; line-height: 1.2; color: #111110; margin-bottom: 12px; letter-spacing: -0.02em; }
+.nl-leao-text { font-size: 13.5px; line-height: 1.78; color: #3a3a38; }
+.nl-leao-text p { margin-bottom: 12px; }
+.nl-leao-text p:last-child { margin-bottom: 0; }
+.nl-leao-text strong { color: #111110; font-weight: 700; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+.nl-verb-num-val.dn { color: #C0392B; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+.nl-footer-legal { margin-top: 14px; font-size: 10px; color: #B8B7B0; line-height: 1.6; }
+
+@media (max-width: 600px) {
+  body { padding: 16px 0; }
+  .nl-header, .nl-body, .nl-footer { padding-left: 20px; padding-right: 20px; }
+  .nl-manchete { padding-left: 20px; padding-right: 20px; }
+  .nl-logo-name { font-size: 34px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-termo { grid-template-columns: repeat(3, 1fr); }
+  .nl-termo-item:nth-child(3n) { border-right: none; }
+  .nl-termo-item:nth-child(-n+3) { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-val { font-size: 15px; }
+  .nl-placar-grid { grid-template-columns: 1fr; gap: 22px; }
+  .nl-block-title { font-size: 19px; }
+  .nl-leao-title { font-size: 17px; }
+  .nl-empresa-nome { font-size: 23px; }
+  .nl-verb-term { font-size: 24px; }
+  .nl-verb-nums { grid-template-columns: repeat(2, 1fr); }
+  .nl-verb-num-item:nth-child(2n) { border-right: none; }
+  .nl-verb-num-item:nth-child(-n+2) { border-bottom: 1px solid #E8E8E6; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@INSTAGRAM</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#010</strong> &nbsp;·&nbsp; QUINTA, 20 AGO 2026 &nbsp;·&nbsp; SEMANA DE 13–19 AGO &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      O juro do título de 30 anos americano bateu 5,31% — a maior taxa em quase vinte anos. A dívida dos EUA passou de US$ 40 trilhões. E ninguém queria comprar papel longo do governo mais endividado do planeta. Aí, na quarta, o Tesouro fez o que faz quem está encurralado: anunciou que vai comprar os próprios títulos que ninguém quis. <em>Dobrou o programa de recompra.</em> Mágica — o juro caiu, o dólar desabou para a mínima de três meses, e a bolsa, que sangrava havia quatro dias, respirou. O Fed que se dane: quem mandou nesta semana foi o mercado de títulos. Arranca.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO DO MERCADO -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.708</div>
+      <div class="nl-termo-chg dn">−0,5% sem</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq</div>
+      <div class="nl-termo-val">26.331</div>
+      <div class="nl-termo-chg dn">−1,0% sem</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Brent</div>
+      <div class="nl-termo-val">US$ 91</div>
+      <div class="nl-termo-chg up">+5% sem</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ouro</div>
+      <div class="nl-termo-val">US$ 4.569</div>
+      <div class="nl-termo-chg up">máx. 2 meses</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">167.764</div>
+      <div class="nl-termo-chg up">+0,9% 🐂</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 12m em R$ / CDI</div>
+      <div class="nl-termo-val">~104%</div>
+      <div class="nl-termo-chg nt">empatou o CDI</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- PREDADORES E PRESAS -->
+    <div class="nl-section-label">Predadores e Presas</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os predadores</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MRNA</span><span class="nl-placar-name">Moderna</span></div><div class="nl-placar-pct up">+177%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MRK</span><span class="nl-placar-name">Merck</span></div><div class="nl-placar-pct up">+12,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SNDK</span><span class="nl-placar-name">SanDisk</span></div><div class="nl-placar-pct up">+9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NDSN</span><span class="nl-placar-name">Nordson</span></div><div class="nl-placar-pct up">+8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BNTX</span><span class="nl-placar-name">BioNTech</span></div><div class="nl-placar-pct up">+6%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ As presas</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CBRS</span><span class="nl-placar-name">Cerebras</span></div><div class="nl-placar-pct dn">−12%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CSCO</span><span class="nl-placar-name">Cisco</span></div><div class="nl-placar-pct dn">−8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">COHR</span><span class="nl-placar-name">Coherent</span></div><div class="nl-placar-pct dn">−8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BHIA</span><span class="nl-placar-name">Casas Bahia</span></div><div class="nl-placar-pct dn">−5,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">ORCL</span><span class="nl-placar-name">Oracle</span></div><div class="nl-placar-pct dn">−3%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">A semana inteira foi um velório: S&P e Nasdaq no vermelho, chip apanhando, juro longo mordendo. O único fogo de artifício da semana foi uma <strong>vacina de câncer</strong> — a Moderna sozinha carregou a coluna dos vencedores nas costas. Do outro lado, os balanços da Cisco, Cerebras e Coherent viraram pó, e a Casas Bahia foi pedir recuperação judicial de R$ 17,3 bi. <strong>Quando a maior alta da semana é uma cura pro câncer e a maior queda é uma loja de móveis quebrando, o recado é: não foi uma semana normal.</strong></div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-leao">
+      <div class="nl-leao-kicker">O canto brasileiro do Lobo</div>
+      <div class="nl-leao-title">Enquanto o gringo dá PIX pra si mesmo, o Brasil foge da própria bolsa</div>
+      <div class="nl-leao-text">
+        <p>Enquanto o Tesouro americano recomprava a própria dívida pra segurar o juro, o Ibovespa vivia o oposto: <strong>onze quedas seguidas</strong> — a maior sequência desde 2023 —, acumulando 6,5% de tombo. O motivo não veio de fora. Veio de dentro: <strong>R$ 18,1 bilhões</strong> de estrangeiros saíram da bolsa só em agosto, o JPMorgan rebaixou as ações brasileiras e o Citi tirou o real da cesta de carry trade. Tradução: o gringo está com medo da eleição e do ajuste fiscal que ninguém quer prometer pra 2027.</p>
+        <p>Na quarta, o Ibov finalmente subiu 0,9% e quebrou a sequência — mas de carona no alívio lá de fora, não por mérito próprio. Nem sustentou os 170 mil pontos que tocou no melhor momento. Enquanto isso, o Copom cortou a Selic pra <strong>14%</strong> (quarto corte seguido), a Casas Bahia pediu recuperação judicial e o dólar recuou pra R$ 5,18 — de novo, empurrado pelo desespero fiscal americano, não pela virtude brasileira.</p>
+        <p>O espelho é cruel: EUA e Brasil brigam com o mesmo fantasma — a dívida que ninguém sabe como pagar. Só que o Tio Sam pode imprimir dólar e recomprar os próprios títulos. O Brasil, quando aperta, vê o estrangeiro sacar R$ 18 bi e sumir.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">O Leão, aqui, mira o seu contracheque. O Lobo só constata a diferença de tratamento: <strong>dívida de gringo tem PIX de socorro; dívida de emergente tem fuga de capital.</strong> Real forte nesta semana não é sinal de casa arrumada — é reflexo da casa do vizinho pegando fogo. Aproveite o câmbio, mas não confunda alívio importado com solução.</div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">A ata saiu <span class="nl-tachado">dovish</span> hawkish. Três diretores queriam subir juro AGORA. O mercado deu de ombros.</div>
+      <div class="nl-block-text">
+        <p>Na quarta saiu a ata da reunião de julho do Fed. Recado: <strong>três diretores defenderam subir o juro imediatamente.</strong> Com a inflação teimando na casa dos 3% e a taxa básica em 3,75%, foi um documento claramente hawkish. Em qualquer semana normal, isso derrubaria a bolsa. Nesta, o mercado leu, bocejou e seguiu comprando — porque na mesma tarde o Tesouro soltou a bazuca de recompra e o juro longo caiu junto.</p>
+        <p>E aqui está o ponto que ninguém sublinha: <strong>a ponta longa da curva parou de ouvir o Fed.</strong> O título de 30 anos a 5,31% não é sobre a taxa básica — é prêmio de prazo. É o mercado exigindo mais pra emprestar por três décadas a um governo com US$ 40 trilhões de dívida, uma farra de capex de IA financiada a crédito e uma inflação que não cede. O Fed manda no juro curto. Os bond vigilantes mandam no longo.</p>
+        <p>E esta semana os vigilantes ganharam — até o Tesouro entrar comprando pra tirá-los de campo.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Warsh e três colegas querendo apertar o parafuso; o Tesouro do <strong>mesmo governo</strong> afrouxando via recompra na mesma tarde. Mão direita subindo, mão esquerda descendo. <strong>Bem-vindo à esquizofrenia fiscal-monetária de 2026</strong> — onde o banco central e o tesouro puxam a corda em direções opostas e chamam isso de "política econômica".</div>
+      </div>
+    </div>
+
+    <!-- EMPRESA SOB A LUPA -->
+    <div class="nl-section-label">Empresa Sob a Lupa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">Moderna — MRNA</div>
+      <div class="nl-block-title">A ação que o mercado tinha enterrado subiu 177% num dia. Com uma vacina de câncer.</div>
+      <div class="nl-block-text">
+        <p>Em janeiro, a Moderna valia US$ 29,81 — um cadáver da ressaca pós-pandemia que o mercado já tinha jogado na cova. Na quarta, ela e a Merck anunciaram que a vacina personalizada de mRNA (a tal intismeran) combinada com a Keytruda funcionou numa fase 3 de melanoma: 1.137 pacientes, <strong>o primeiro estudo de fase 3 de uma vacina de mRNA contra câncer a dar certo.</strong> A ação disparou 177% — melhor pregão da história —, adicionou cerca de US$ 40 bilhões de valor de mercado, fez o CEO Stéphane Bancel US$ 2,5 bilhões mais rico antes do almoço e devolveu o status de bilionário ao cofundador Robert Langer. A Merck subiu 12,6% de carona (a Keytruda encara o abismo de patente no fim da década; a vacina estica a franquia). O índice de biotech do Nasdaq bateu recorde.</p>
+        <p>Agora o detalhe delicioso: eles anunciaram "melhora estatisticamente significativa" <strong>sem soltar um único número de eficácia.</strong> Zero. Um press release de fase 3 sem tamanho de efeito — se uma biotechzinha fizesse isso, os mesmos analistas a crucificavam ao vivo. O JPMorgan, gelado, avisou: o sucesso no melanoma já estava 85% precificado; o que vale de verdade é a leitura pros outros nove estudos (pulmão, bexiga, rim). O Barclays chuta US$ 3 bi/ano de vendas em melanoma até 2035.</p>
+        <p>Uma vacina de câncer que funciona é notícia boa pra humanidade — e um lembrete de que o mercado enterra empresa cedo demais. Quem tinha Moderna a US$ 30 em janeiro e aguentou o tranco fez 5x. Quem vendeu no fundo virou personagem de piada.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">A mesma turma que jogou a Moderna no lixo em janeiro agora escreve relatório dizendo que "sempre viu o potencial da plataforma de mRNA". <strong>O mercado não tem memória — mas tem cara de pau.</strong> E vale o lembrete de sempre: euforia de um dia não é tese de investimento. A vacina ainda precisa ser aprovada, fabricada em escala e vendida. Fase 3 boa não paga boleto ainda.</div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O dólar rachou. E dessa vez o motivo mora em Washington, não em Brasília.</div>
+      <div class="nl-block-text">
+        <p>Nos últimos meses, o dólar subia porque o mundo tinha medo. Nesta semana, ele caiu porque o medo virou pra dentro dos próprios EUA. O dólar (índice DXY) foi à mínima de três meses depois que o Tesouro anunciou a recompra e o juro longo cedeu. Segue o fio de como isso chega no seu bolso:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Tesouro recompra dívida + juro longo cai</strong> → o dólar perde força e desaba para a mínima de três meses no mundo</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Dólar fraco lá fora</strong> → real, peso mexicano, chileno e colombiano ganham fôlego (o "superpeso" a 16,94, o mais forte desde 2024; o peso colombiano no menor nível desde 2018)</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Real a R$ 5,18</strong> → alívio importado, não conquistado — veio do desespero fiscal americano, não da lição de casa brasileira</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Mas o Brasil tem seu próprio fantasma</strong> (eleição, ajuste de 2027, fuga de estrangeiro) → o alívio do câmbio tem teto baixo</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>Detalhe que inverteu:</strong> desta vez o petróleo SUBIU (Ormuz de novo, +5% na semana) → a Petrobras respira, ao contrário das últimas edições. Mas isso é rodapé, não manchete.</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Se você dolarizou lá atrás, ótimo — não desfaz por causa de uma semana. Mas entenda o que aconteceu: <strong>o real não ficou forte porque o Brasil arrumou a casa. Ficou porque a casa do vizinho pegou fogo.</strong> É alívio de carona, não de mérito. E carona, todo mundo sabe, acaba onde o motorista decidir descer.</div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode estragar — ou salvar — a última semana cheia de agosto:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">26 AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">PCE de julho — a inflação que o Fed realmente olha</div>
+            <div class="nl-cal-desc">Sai 8h30. É a medida de inflação preferida do banco central americano. Se vier quente, a ata hawkish ganha razão e o juro longo volta a morder. Se vier fria, a bazuca do Tesouro ganha um reforço.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">26 AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Nvidia — o balanço que virou plebiscito da IA</div>
+            <div class="nl-cal-desc">Reporta após o fechamento, no mesmo dia do PCE, pra ninguém dormir. Barra de US$ 91 bi de receita. Decepcionou, o chip apanha e leva a bolsa junto; superou, a farra da IA continua por mais um trimestre.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">28 AGO</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Jackson Hole — o primeiro discurso do Warsh como chair</div>
+            <div class="nl-cal-desc">O simpósio anual do Fed, com o Warsh estreando no palco como presidente. Com o juro de 30 anos na máxima de quase duas décadas, cada vírgula da fala dele vira trade. Ele não vai poder ser chato desta vez.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">PCE e Nvidia no mesmo dia, Warsh dois dias depois. <strong>É agosto tentando compensar três semanas de tédio numa tacada só.</strong> Não é semana pra jogar dado com a carteira — é semana de deixar a poeira baixar antes de mexer em qualquer coisa. Segura a carteira. E o café.</div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO DO LOBO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Recompra de Títulos</div>
+        <div class="nl-verb-en">Bond Buyback</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>É quando o governo recompra os próprios títulos de dívida antes do vencimento, tirando papel do mercado e injetando dinheiro no sistema. Na teoria, é gestão de dívida — rotina de tesouraria. Na prática desta semana, foi <strong>resgate.</strong> Com o juro do título de 30 anos na máxima de quase vinte anos e ninguém querendo comprar papel longo (a tal "greve de compradores"), o Tesouro americano anunciou que vai pelo menos dobrar as recompras — de US$ 2 bilhões para no mínimo US$ 4 bilhões por operação, mirando os vencimentos de 10 a 30 anos.</p>
+        <p>Por que importa: <strong>quando o próprio emissor da dívida precisa entrar como comprador pra segurar o preço, é porque o mercado estava desconfiado.</strong> Funcionou no curtíssimo prazo — juro caiu 10 pontos-base, dólar desabou, ouro disparou. Mas resolver dívida comprando a própria dívida é uma solução... criativa.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Juro 30 anos</div>
+          <div class="nl-verb-num-val dn">5,31%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Após a bazuca</div>
+          <div class="nl-verb-num-val up">5,18%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Recompra</div>
+          <div class="nl-verb-num-val" style="font-size:12px; padding-top:2px;">US$ 2bi<br>→ ≥US$ 4bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Dívida EUA</div>
+          <div class="nl-verb-num-val">US$ 40 tri</div>
+        </div>
+      </div>
+      <div class="nl-verb-def" style="margin-top:16px;">
+        <p>O governo mais endividado do planeta virou o maior fã dos próprios títulos. <strong>É tipo passar o cartão de crédito pra pagar a fatura do mesmo cartão — e comemorar que a fatura "baixou".</strong> Vai entender.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://instagram.com">@Instagram</a>
+    </div>
+    <div class="nl-footer-legal">
+      {{ address }}
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
