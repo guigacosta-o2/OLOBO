@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  O LOBO — EDIÇÃO #012
+  Publicação: quinta, 03/09/2026 · Semana coberta: 27/ago–02/set/2026
+  Corte de dados: fechamento de quarta (02/09/2026)
+
+  SUBJECT LINE: A Nvidia fez história. O mercado bocejou.
+  PREHEADER: Melhor trimestre de sempre, ação de lado — e o dinheiro da IA fugindo pra outro canto. Fed voltou a falar em ALTA. Arranca.
+
+  ------------------------------------------------------------
+  INDICADOR PROPRIETÁRIO — S&P 500 12m em R$ como % do CDI acumulado
+  Fórmula: [ (S&P_hoje / S&P_12m) * (PTAX_hoje / PTAX_12m) - 1 ] / CDI_12m
+  Inputs usados:
+    S&P_hoje  = 7.666,60 (02/09/2026)
+    S&P_12m   = 6.502,08 (02/09/2025, fech.)                -> retorno USD 12m = +17,9%
+    PTAX_hoje = 5,08 (venda, 02/09/2026)
+    PTAX_12m  = 5,43 [VERIFICAR — estimado; reconciliar com série histórica BCB]
+    CDI_12m   = 13,7% [VERIFICAR — estimado; conferir acumulado 12m exato]
+  Cálculo: retorno S&P em R$ 12m = +10,3% ; composto = 10,3 / 13,7 ≈ 75%
+  Sensibilidade (PTAX_12m 5,35–5,55 ; CDI_12m 13,5–14,0%): composto ≈ 70–80%
+  Leitura editorial: o S&P, em reais, rendeu ~3/4 do CDI nos últimos 12m.
+  ------------------------------------------------------------
+  RESÍDUOS [VERIFICAR] ANTES DO ENVIO:
+    - % semanais dos Predadores/Presas = reação ao resultado/estimativa; conferir net semanal.
+    - Brent 02/09 ~US$ 95,6 (settle ABC/TradingEconomics); tabela Rio Times marcou 88,88 — conferir.
+    - Ibovespa var. semanal exata (fech. 26/08 não confirmado); exibido "máx. ~4 meses" (fonte: RioTimes).
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #012</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; flex-wrap: wrap; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 13px 6px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #888780; margin-bottom: 4px; line-height: 1.2; }
+.nl-termo-val { font-size: 15px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 9px; font-weight: 600; margin-top: 3px; line-height: 1.2; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-leao { margin: 0; border: 1.5px solid #111110; padding: 18px 20px; background: #F7F7F5; }
+.nl-leao-title { font-size: 15px; font-weight: 900; color: #111110; margin-bottom: 10px; letter-spacing: -0.01em; }
+.nl-leao-text { font-size: 13px; line-height: 1.7; color: #3a3a38; }
+.nl-leao-text strong { color: #111110; font-weight: 700; }
+.nl-leao-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 14px; border: 1px solid #E8E8E6; }
+.nl-leao-num-item { padding: 10px 12px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-leao-num-item:last-child { border-right: none; }
+.nl-leao-num-label { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-leao-num-val { font-size: 14px; font-weight: 900; color: #111110; line-height: 1.1; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+.nl-verb-num-val.dn { color: #C0392B; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+.nl-footer-legal { margin-top: 14px; font-size: 10px; color: #B0AFA8; line-height: 1.6; }
+
+/* ===== MOBILE ===== */
+@media only screen and (max-width: 600px) {
+  body { padding: 0; }
+  .nl { font-size: 14px; }
+  .nl-header, .nl-manchete, .nl-body, .nl-footer { padding-left: 20px; padding-right: 20px; }
+  .nl-logo-name { font-size: 34px; }
+  .nl-termo { grid-template-columns: repeat(3, 1fr); }
+  .nl-termo-item { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(3n) { border-right: none; }
+  .nl-termo-val { font-size: 16px; }
+  .nl-termo-label { font-size: 9px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-block-title { font-size: 19px; }
+  .nl-empresa-nome { font-size: 23px; }
+  .nl-verb-term { font-size: 23px; }
+  .nl-placar-grid { grid-template-columns: 1fr; gap: 20px; }
+  .nl-verb-nums { grid-template-columns: repeat(2, 1fr); }
+  .nl-verb-num-item:nth-child(2) { border-right: none; }
+  .nl-leao-nums { grid-template-columns: 1fr; }
+  .nl-leao-num-item { border-right: none; border-bottom: 1px solid #E8E8E6; }
+  .nl-cal-item { grid-template-columns: 56px 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@somoslobo.newsletter</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#012</strong> &nbsp;·&nbsp; QUINTA, 3 SET 2026 &nbsp;·&nbsp; SEMANA DE 27 AGO–2 SET &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      A Nvidia teve o melhor trimestre da história de qualquer empresa de tecnologia — US$ 96 bilhões de receita, mais que o dobro de um ano atrás. <em>A ação subiu, deu de ombros e o mercado seguiu de lado.</em> Enquanto isso, o dinheiro da IA fugiu dos gigantes e correu pra segurança e software. E o Fed, que meses atrás cogitava cortar juros, voltou a assustar com uma palavra que ninguém queria ouvir: <em>alta.</em> Arranca.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO — 6 indicadores -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.666</div>
+      <div class="nl-termo-chg dn">−0,1% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq</div>
+      <div class="nl-termo-val">26.218</div>
+      <div class="nl-termo-chg up">+0,3% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Petróleo Brent</div>
+      <div class="nl-termo-val">US$ 96</div>
+      <div class="nl-termo-chg up">máx. 6 sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ouro</div>
+      <div class="nl-termo-val">US$ 4.360</div>
+      <div class="nl-termo-chg dn">−5,6% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">185.205</div>
+      <div class="nl-termo-chg up">máx. 4 meses</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 12m em R$ / CDI</div>
+      <div class="nl-termo-val">≈75%</div>
+      <div class="nl-termo-chg nt">do CDI</div>
+    </div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- QUEM GANHOU / SE FERROU -->
+    <div class="nl-section-label">Quem Ganhou, Quem Se Ferrou</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os sortudos</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">OKTA</span><span class="nl-placar-name">Okta</span></div><div class="nl-placar-pct up">+25%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">SNPS</span><span class="nl-placar-name">Synopsys</span></div><div class="nl-placar-pct up">+13%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CRM</span><span class="nl-placar-name">Salesforce</span></div><div class="nl-placar-pct up">+11%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CRWD</span><span class="nl-placar-name">CrowdStrike</span></div><div class="nl-placar-pct up">+9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct up">+9%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ Os azarados</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NKE</span><span class="nl-placar-name">Nike</span></div><div class="nl-placar-pct dn">−5%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">WYNN</span><span class="nl-placar-name">Wynn Resorts</span></div><div class="nl-placar-pct dn">−6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">LVS</span><span class="nl-placar-name">Las Vegas Sands</span></div><div class="nl-placar-pct dn">−5%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">CCL</span><span class="nl-placar-name">Carnival</span></div><div class="nl-placar-pct dn">−5%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">HPQ</span><span class="nl-placar-name">HP</span></div><div class="nl-placar-pct dn">−3%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">De um lado, software e segurança soltando fogos: Okta, Salesforce, CrowdStrike. Do outro, o consumidor de carne e osso na lona: tênis (Nike), cassino (Wynn, Sands) e cruzeiro (Carnival), tudo na mínima de 52 semanas. <strong>É a economia de duas velocidades num único placar: quem vende IA para empresa comemora, quem vende diversão para gente comum apanha. O mercado não está subindo — ele está escolhendo lado.</strong></div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-block">
+      <div class="nl-leao">
+        <div class="nl-leao-title">Enquanto Nova York suava frio, o Brasil deu uma festa particular</div>
+        <div class="nl-leao-text">
+          O Ibovespa disparou <strong>3% na quarta e fechou em 185 mil pontos</strong> — o maior nível em cerca de quatro meses — e o real ficou forte, com o dólar rondando os <strong>R$ 5,08</strong>. E, dessa vez, quase nada disso teve a ver com os Estados Unidos. Foi política e negócio de casa: uma pesquisa Quaest mostrando <strong>Lula (42%) e Flávio Bolsonaro (41%) empatados</strong> tirou parte do medo de virada brusca de rumo, e o acordo entre Magazine Luiza e Mercado Livre botou o varejo para correr. A produção industrial ainda veio no azul (+0,20% em julho). Resultado: os juros futuros recuaram e o prêmio de risco encolheu — enquanto lá fora o mundo brigava com Treasury a 4,8%.
+        </div>
+        <div class="nl-leao-nums">
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">Selic</div>
+            <div class="nl-leao-num-val">14,00%</div>
+          </div>
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">Dólar (PTAX)</div>
+            <div class="nl-leao-num-val">R$ 5,08</div>
+          </div>
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">Próximo Copom</div>
+            <div class="nl-leao-num-val">16–17 SET</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O roteiro virou: agora o mercado tem medo de <span class="nl-tachado">corte</span> alta.</div>
+      <div class="nl-block-text">
+        <p>Guarde esta data: foi a semana em que Wall Street parou de sonhar com corte de juros e começou a temer o oposto. A probabilidade de <strong>alta</strong> de juros na reunião do Fed de setembro pulou para cerca de <strong>66%</strong>, contra uns 40% uma semana antes. Sim, alta. A palavra que estava enterrada voltou do túmulo.</p>
+        <p>O gatilho é a inflação que não desiste. O núcleo do PCE de julho — o índice de estimação do Fed — veio em <strong>3,3% no ano</strong>, dentro do esperado, mas teimosamente longe da meta de 2%. E o Kevin Warsh, presidente do Fed, foi a Jackson Hole basicamente dizer que um verão de números "melhores que o esperado" não o convence de que a tendência de fundo melhorou. Tradução do economês: <strong>não conta com afrouxamento tão cedo.</strong></p>
+        <p>O recado apareceu no lugar que mais dói: o rendimento do Treasury de 10 anos bateu <strong>4,818%</strong>, o mais alto desde novembro de 2023. Quando o juro do título mais seguro do mundo sobe, tudo o que é arriscado — inclusive a melhor ação de IA do planeta — fica automaticamente mais caro na conta de quem calcula valor. Por isso a Nvidia entregou o resultado do século e o índice mal se mexeu.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">O prévia do emprego privado (ADP) veio fraca: <strong>+38 mil vagas</strong>, a pior desde janeiro. Ou seja, a economia esfria de um lado e a inflação empaca do outro — o pesadelo clássico de qualquer banco central. <strong>Sexta tem o payroll oficial. Se vier fraco de novo, o Fed fica entre esfriar o que já está esfriando ou combater a inflação que não cede. Não existe resposta boa nesse dilema — só a menos ruim.</strong></div>
+      </div>
+    </div>
+
+    <!-- DISSECANDO A EMPRESA -->
+    <div class="nl-section-label">Empresa Sob a Lupa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">CrowdStrike — CRWD</div>
+      <div class="nl-block-title">A IA que dá dinheiro agora não é a que treina robô. É a que protege você dele.</div>
+      <div class="nl-block-text">
+        <p>Todo mundo passou a semana olhando pra Nvidia. Enquanto isso, uma empresa de cibersegurança entregou o tipo de número que faz gestor babar: a CrowdStrike reportou receita de <strong>US$ 1,47 bilhão no trimestre, alta de 26% no ano</strong>, acima do que o mercado esperava, e — o detalhe que importa — uma receita recorrente nova recorde de <strong>US$ 333 milhões, um salto de 51%</strong>. A ação subiu 9% e a empresa ainda elevou a projeção pro ano. Tradução: não é fogo de palha, é assinatura que se renova sozinha todo mês.</p>
+        <p>Por que ela e não a Nvidia? Porque conta a história real da semana. O mercado de IA está amadurecendo e se dividindo: de um lado, quem <em>constrói</em> a infraestrutura (chips, data centers — capex bilionário e olho no retorno); do outro, quem <em>vende serviço</em> em cima dela — segurança, automação, software que a empresa cliente paga todo mês sem pensar. Foi pra esse segundo grupo que o dinheiro correu esta semana, saindo de Meta, Amazon e Alphabet.</p>
+        <p>A graça é que a CrowdStrike vende exatamente o remédio pro veneno que a própria IA cria: quanto mais empresa automatiza, mais superfície de ataque ela abre, e mais precisa de quem defenda o pedaço. É um negócio que cresce com o problema. Chato de explicar no churrasco, ótimo de ter na carteira.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">"Ter IA na carteira" não é uma coisa só. O QQQ tem Nvidia, mas também tem CrowdStrike e Salesforce — que voaram enquanto os gigantes patinavam. <strong>Quem só carregava os sete magníficos ficou parado numa semana em que a segunda onda da IA fez a festa. Antes de dizer que "tem tech", vale conferir qual tech você realmente tem lá dentro.</strong></div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O juro americano voltou a ser o preço de tudo — inclusive do seu real.</div>
+      <div class="nl-block-text">
+        <p>O rendimento do Treasury de 10 anos na máxima em quase dois anos parece assunto de gente de gravata em Nova York. Não é. É o número que, lá no fim da linha, mexe com quanto vale o seu dinheiro aqui. Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Inflação americana emperrada</strong> → Fed sinaliza que pode subir juros em vez de cortar → o Treasury de 10 anos vai a 4,8%, máxima desde 2023</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Título gringo pagando mais</strong> → o investidor do mundo inteiro corre pro dólar buscar esse juro alto e "seguro" → o dólar ganha força globalmente</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Dólar mais atraente lá fora</strong> → sai capital de mercado emergente → real, peso mexicano e companhia teriam tudo pra apanhar</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Mas o Brasil remou na contramão</strong> → Selic a 14%, política doméstica mais calma e fluxo pra bolsa seguraram o real perto de R$ 5,08 mesmo com o juro gringo subindo</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>Pra você:</strong> a renda fixa americana ficou mais tentadora, mas quem trocou tudo por dólar nas últimas semanas viu o real teimar em subir. Câmbio não anda em linha reta — anda de ziguezague</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Juro americano alto é vento contra pra emergente — na teoria. Na prática, esta semana o Brasil provou que fluxo e política de casa podem gritar mais alto que o Fed por alguns dias. <strong>Não confunda um bom capítulo com o fim da novela: enquanto o Treasury pagar 4,8%, o dólar continua sendo um imã. Diversificar segue certo. Apostar tudo num lado, não.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode confirmar ou detonar o clima da próxima semana:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">SEX<br>4 SET</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Payroll de agosto — o juiz do jogo</div>
+            <div class="nl-cal-desc">A prévia do ADP já veio fraca (+38 mil, a pior desde janeiro). Se o payroll oficial confirmar economia esfriando com inflação alta, o Fed cai no dilema mais desconfortável que existe — e o mercado descobre de novo o que é volatilidade.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">MED.<br>SET</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">CPI de agosto — a inflação sob o microscópio</div>
+            <div class="nl-cal-desc">A leitura de inflação que vai dizer se a aposta de alta de juros do Fed se sustenta ou desinfla. Número quente reforça o susto; número frio devolve a esperança de que o pior já passou.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">16–17<br>SET</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Fed e Copom no mesmo dia — pinga-pinga de juro</div>
+            <div class="nl-cal-desc">O Fed decide com ~66% de chance de alta já no preço. E, por coincidência do calendário, o Copom se reúne exatamente nos mesmos dias. Dois bancos centrais, dois roteiros opostos — e o câmbio no meio do fogo cruzado.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Payroll na sexta, CPI no meio do mês, Fed e Copom juntos no dia 17. É gatilho atrás de gatilho. <strong>Não é semana pra girar carteira no susto de manchete. É semana de deixar o pó baixar e agir com dado na mão — não com adrenalina.</strong></div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Já no Preço</div>
+        <div class="nl-verb-en">Priced In</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>A Nvidia teve o melhor trimestre da história e a ação subiu módicos 9% — depois de <em>cair</em> lá pelas tantas no after-hours. Como assim? Bem-vindo ao conceito que explica metade das frustrações do investidor iniciante: quando uma notícia ótima já era amplamente esperada, ela já está <strong>"no preço"</strong>. O mercado não paga pela notícia — ele paga pela <em>surpresa</em>.</p>
+        <p>Funciona assim: se todo mundo já espera um resultado espetacular, os compradores entram antes, empurram a ação pra cima <em>antes</em> do anúncio, e quando a boa notícia finalmente sai... já não sobra combustível. Pra ação subir de verdade, o resultado precisa ser melhor do que o já-espetacular que estava embutido. É uma barra que sobe sozinha.</p>
+        <p>A lição prática, valendo dinheiro de verdade: <strong>não compre na euforia da notícia boa.</strong> Quando a manchete grita "recorde histórico", muita gente já lucrou no caminho até ali. O amador compra o fato; o mercado, esse, já tinha comprado o boato semanas antes — e agora está do outro lado da mesa, te vendendo.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Receita NVDA</div>
+          <div class="nl-verb-num-val">US$ 96 bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Cresc. no ano</div>
+          <div class="nl-verb-num-val up">+106%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Ação no dia</div>
+          <div class="nl-verb-num-val up">+9%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Reação real</div>
+          <div class="nl-verb-num-val" style="font-size:12px; padding-top:2px;">Bocejo.<br>Já no preço.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://somoslobo.com/privacidade">Política de privacidade</a>
+      <a href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+    </div>
+    <div class="nl-footer-legal">
+      Você recebe este email porque assinou O Lobo em somoslobo.com.<br>
+      {{ address }}
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
