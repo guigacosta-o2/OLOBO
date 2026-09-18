@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #014</title>
+
+<!--
+  ============================================================
+  SUBJECT LINE: 🐺 O Fed subiu. O Brasil cortou. Mesma quarta.
+  PREHEADER: Primeira alta de juros dos EUA em 3 anos, Treasury a 5% e a Oracle na lupa — o que a Super Quarta faz com a sua carteira.
+  ============================================================
+  EDIÇÃO #014 · quinta, 17/09/2026 · semana de 11–17 set · corte: fechamento de qua, 16/set
+
+  [VERIFICAR] — números aproximados a pinar com dados oficiais antes do envio:
+   - Brent fech. 16/set: ~US$ 106 (TradingEconomics "around $106 Wed"); semana ~+7% (qua 9/set ~US$ 99 → qua 16/set ~US$ 106). Confirmar fechamento exato.
+   - Ouro fech. 16/set: ~US$ 4.300 (recuou na qua; qui 17/set "recuperou acima de 4.300"). Semana ~estável/leve baixa. Confirmar.
+   - Ibovespa: 185.547 (−0,51% no dia, fonte Exame). Variação semanal qua→qua [VERIFICAR].
+   - USD/BRL PTAX 16/set: ~R$ 5,15 (spot R$ 5,151 −0,06%; Notícias Agrícolas PTAX ~R$ 5,15). Confirmar PTAX venda e variação semanal.
+   - CDI acum. 12m: ~14% [VERIFICAR fonte Cetip/B3].
+   - Selic pré-corte (magnitude do corte do Copom em 16/set) [VERIFICAR — confirmado apenas o novo patamar 13,75%].
+   - Movers (Predadores/Presas): percentuais SEMANAIS são temáticos/aproximados — pinar com fechamentos qua→qua. PANW +13% e NOW +7% são movimentos de um dia (15/set) usados como proxy; INTC líquido da semana incerto (−4,68% 10/set / +4,34% 16/set); GS/BAC/NVDA/XHB/ARKK a confirmar.
+
+  INDICADOR PROPRIETÁRIO — S&P 500 em R$ (12m) como % do CDI (metodologia, não exposta ao leitor):
+   - S&P 500 +~14,5% em US$ em 12m (TradingEconomics, 17/set).
+   - USD/BRL 12m atrás estimado ~R$ 5,40–5,50 → apreciação do real de ~5–8% no período.
+   - Retorno do S&P em R$ ≈ (1,145 × PTAX_hoje/PTAX_12m) − 1 ≈ +3% a +8% (central ~+6%).
+   - Ratio vs CDI (~14%) ≈ 22%–59% (central ~43% ≈ "por volta de metade"). FAIXA AMPLA — [VERIFICAR] PTAX de 12m atrás e S&P de 12m atrás antes do envio.
+
+  Fontes-chave: CNBC (fech. 16/09 S&P 7.551,81 / Nasdaq Composite 25.978,42 / Dow −631,21; fech. 09/09 S&P 7.636,36 / Nasdaq 26.253,34), Schwab/TheStreet (alta Fed 3,75–4%, unânime, +1 alta no dot plot), Exame/InfoMoney (Ibov 185.547, dólar R$ 5,151, Super Quarta), BCB (Copom Selic 13,75%, IPCA 12m 4,22%), Investing.com/Zacks (Oracle US$ 30 bi contratos IA / −3,7% 15/set / Ellison cancela venda US$ 7,5 bi; NOW +7,4%; PANW +13,1%; BAC −5,1%), gold-eagle (10 anos ~5,04% máx desde 2007).
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+/* TERMÔMETRO — 6 colunas */
+.nl-termo { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 13px 6px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 15px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 10px; font-weight: 600; margin-top: 3px; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+/* INDICADOR PROPRIETÁRIO — S&P em R$ vs CDI */
+.nl-composite { background: #1a1a19; padding: 14px 32px 16px; border-bottom: 1.5px solid #111110; }
+.nl-composite-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 7px; }
+.nl-composite-row { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.nl-composite-stat { font-size: 20px; font-weight: 900; color: #F1EFE8; letter-spacing: -0.01em; }
+.nl-composite-stat .vs { font-size: 12px; color: #888780; font-weight: 700; margin: 0 4px; }
+.nl-composite-stat .cdi { color: #C0392B; }
+.nl-composite-sub { font-size: 11px; color: #888780; line-height: 1.5; margin-top: 6px; }
+.nl-composite-sub strong { color: #F1EFE8; font-weight: 700; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+.nl-placar-motivo { font-size: 11px; color: #888780; line-height: 1.5; margin-top: 8px; }
+
+/* O LEÃO E O LOBO — mini-seção fiscal */
+.nl-leao { border: 1.5px solid #111110; padding: 18px 20px; }
+.nl-leao-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.nl-leao-kicker::before { content: '🇧🇷'; font-size: 13px; }
+.nl-leao-title { font-size: 17px; font-weight: 900; color: #111110; margin-bottom: 10px; letter-spacing: -0.01em; line-height: 1.25; }
+.nl-leao-text { font-size: 13px; line-height: 1.75; color: #3a3a38; }
+.nl-leao-text strong { color: #111110; font-weight: 700; }
+.nl-leao-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #E8E8E6; border: 1px solid #E8E8E6; margin-top: 14px; }
+.nl-leao-num-item { background: #FFFFFF; padding: 10px 12px; }
+.nl-leao-num-label { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-leao-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.05; }
+.nl-leao-num-val.dn { color: #C0392B; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+.nl-verb-num-val.dn { color: #C0392B; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-text a { color: #111110; font-weight: 600; text-decoration: none; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+.nl-footer-legal { margin-top: 14px; font-size: 10px; color: #A8A79F; line-height: 1.6; }
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 600px) {
+  body { padding: 0; }
+  .nl { font-size: 14px; }
+  .nl-header, .nl-manchete, .nl-composite, .nl-body, .nl-footer { padding-left: 18px; padding-right: 18px; }
+  .nl-header-top { flex-direction: column; gap: 12px; }
+  .nl-meta-right { text-align: left; }
+  .nl-social-row { justify-content: flex-start; }
+  .nl-meta-bar { flex-wrap: wrap; gap: 6px 14px; }
+  .nl-logo-name { font-size: 34px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-termo { grid-template-columns: repeat(3, 1fr); }
+  .nl-termo-item { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(3n) { border-right: none; }
+  .nl-termo-item:nth-last-child(-n+3) { border-bottom: none; }
+  .nl-composite-stat { font-size: 17px; }
+  .nl-block-title { font-size: 19px; }
+  .nl-placar-grid { grid-template-columns: 1fr; gap: 18px; }
+  .nl-empresa-nome { font-size: 23px; }
+  .nl-leao-nums { grid-template-columns: 1fr; }
+  .nl-verb-nums { grid-template-columns: repeat(2, 1fr); }
+  .nl-verb-num-item:nth-child(2n) { border-right: none; }
+  .nl-cal-item { grid-template-columns: 58px 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <span class="nl-social-pill">@somoslobo.newsletter</span>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      EDIÇÃO <strong>#014</strong> &nbsp;·&nbsp; QUINTA, 17 SET 2026 &nbsp;·&nbsp; SEMANA DE 10–16 SET &nbsp;·&nbsp; LEITURA <strong>~6 MIN</strong>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo desta semana</div>
+    <div class="nl-manchete-text">
+      O Fed subiu os juros pela primeira vez em três anos. <em>O mercado, que passou dois anos rezando por corte, levou um banho de água fria.</em> E no mesmo dia, do lado de cá, o Copom cortou a Selic. Dois bancos centrais, dois roteiros opostos, uma só quarta-feira — os EUA apertando, o Brasil afrouxando. Warsh falou em inflação teimosa, o Treasury de 10 anos bateu 5% (máxima desde 2007) e a Oracle lembrou a todos que sonho de IA também vem com fatura. Arranca.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO — 6 colunas -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&P 500</div>
+      <div class="nl-termo-val">7.551</div>
+      <div class="nl-termo-chg dn">−1,1% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq</div>
+      <div class="nl-termo-val">25.978</div>
+      <div class="nl-termo-chg dn">−1,0% sem.</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Brent</div>
+      <div class="nl-termo-val">US$ 106</div>
+      <div class="nl-termo-chg up">+7% sem. 🛢️</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ouro</div>
+      <div class="nl-termo-val">US$ 4.300</div>
+      <div class="nl-termo-chg nt">~estável</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">185.547</div>
+      <div class="nl-termo-chg dn">−0,5% dia</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Dólar (PTAX)</div>
+      <div class="nl-termo-val">R$ 5,15</div>
+      <div class="nl-termo-chg nt">de lado</div>
+    </div>
+  </div>
+
+  <!-- INDICADOR PROPRIETÁRIO -->
+  <div class="nl-composite">
+    <div class="nl-composite-label">O Indicador do Lobo · S&P 500 em reais (12 meses)</div>
+    <div class="nl-composite-row">
+      <div class="nl-composite-stat">~+6% em R$ <span class="vs">vs.</span> <span class="cdi">CDI ~14%</span></div>
+    </div>
+    <div class="nl-composite-sub">Traduzindo: a bolsa americana, convertida em reais, rendeu <strong>por volta de metade do CDI</strong> nos últimos 12 meses — e com muito mais sobressalto no caminho. O real forte comeu boa parte do ganho em dólar. Renda fixa em real não pediu desculpa a ninguém.</div>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- PREDADORES & PRESAS -->
+    <div class="nl-section-label">Predadores &amp; Presas</div>
+    <div class="nl-block">
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Os predadores</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">PANW</span><span class="nl-placar-name">Palo Alto</span></div><div class="nl-placar-pct up">+12,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NOW</span><span class="nl-placar-name">ServiceNow</span></div><div class="nl-placar-pct up">+7,4%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">XLE</span><span class="nl-placar-name">ETF Energia</span></div><div class="nl-placar-pct up">+5,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">XOM</span><span class="nl-placar-name">ExxonMobil</span></div><div class="nl-placar-pct up">+4,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">INTC</span><span class="nl-placar-name">Intel</span></div><div class="nl-placar-pct up">+4,3%</div></div>
+          <div class="nl-placar-motivo">Cibersegurança virou refúgio no pânico com IA (PANW). Software "sobrevivente" respirou (NOW). E o petróleo em disparada arrastou energia inteira pra cima.</div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ As presas</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">BAC</span><span class="nl-placar-name">Bank of America</span></div><div class="nl-placar-pct dn">−5,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">ARKK</span><span class="nl-placar-name">ETF ARK Innov.</span></div><div class="nl-placar-pct dn">−4,6%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">GS</span><span class="nl-placar-name">Goldman Sachs</span></div><div class="nl-placar-pct dn">−4,0%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">XHB</span><span class="nl-placar-name">ETF Construção</span></div><div class="nl-placar-pct dn">−3,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct dn">−3,0%</div></div>
+          <div class="nl-placar-motivo">Moynihan (BAC) avisou que fee de banco de investimento cai ≥10% no tri. E juro alto por mais tempo é veneno para crescimento não-lucrativo (ARKK) e construção (XHB).</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">O Treasury de 10 anos a 5% reorganizou o pátio inteiro: quem depende de lucro lá na frente (tech de crescimento, construção) apanhou; quem cospe caixa hoje (energia, cibersegurança com contrato assinado) prosperou. <strong>Juro alto não é o fim do mundo — é só o mercado lembrando de perguntar "e o lucro, vem quando?" antes de pagar caro por promessa.</strong></div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Warsh <span class="nl-tachado">falou</span> cumpriu. Subiu os juros — e prometeu mais.</div>
+      <div class="nl-block-text">
+        <p>Depois de meses ameaçando, o Fed finalmente puxou o gatilho: <strong>alta de 0,25 ponto, para a faixa de 3,75% a 4%</strong>. Primeira alta desde julho de 2023, primeira sob o comando de Kevin Warsh, e — detalhe importante — <strong>por decisão unânime</strong>. Não teve dissidente, não teve "ala das pombas" segurando a barra. Todos assinaram embaixo.</p>
+        <p>O mercado até tentou comemorar. Chegou a subir no meio da tarde. Aí Warsh abriu a boca na coletiva, disse que a inflação do verão "não mostra melhora consistente" e, no dot plot, o Fed cravou <strong>mais uma alta ainda em 2026</strong>. O S&P virou e fechou em queda (7.551), o Dow perdeu 631 pontos, e o rendimento do Treasury de 10 anos foi a <strong>5% — nível que não se via desde 2007</strong>. Isso mesmo: antes da crise de 2008.</p>
+        <p>O pano de fundo ajuda o discurso do Fed: as vendas no varejo de agosto vieram em +1,2%, acima do esperado. Ou seja, o consumidor americano continua gastando, e economia aquecida com inflação teimosa é exatamente a receita que faz banco central subir juro. Warsh, na primeira coletiva pós-alta, ainda fez questão de evitar bronca pública com a Casa Branca — que queria corte — e repetir que o foco é a inflação. Tradução: <strong>Trump quer uma coisa, Warsh vai fazer outra, e por enquanto o crachá do Fed fala mais alto.</strong></p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Por dois anos, "notícia ruim" (emprego fraco, economia mole) era comemorada porque adiantava corte de juros. Warsh acabou com a farra: <strong>agora notícia boa demais é notícia ruim, porque significa mais aperto.</strong> O mercado ainda está reaprendendo a andar num mundo onde o dinheiro voltou a ter preço.</div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-block">
+      <div class="nl-leao">
+        <div class="nl-leao-kicker">O ângulo Brasil</div>
+        <div class="nl-leao-title">Super Quarta ao contrário: lá subiram, aqui o Copom cortou</div>
+        <div class="nl-leao-text">
+          <p>Enquanto Warsh apertava o parafuso em Washington, o Copom foi na direção oposta e <strong>cortou a Selic para 13,75%</strong>, com o IPCA rodando a 4,22% em 12 meses. Faz sentido pra cá: inflação mais comportada, atividade dando sinais de fôlego curto. Só que a conta internacional muda.</p>
+          <p>Todo corte daqui e toda alta de lá <strong>encolhem o diferencial de juros</strong> entre Brasil e EUA — exatamente o imã que atraía dólar de gringo pra renda fixa brasileira. Menos diferença, menos incentivo pra trazer capital. É por isso que o real fica sem um de seus apoios justo quando o dólar globalmente ganha força.</p>
+        </div>
+        <div class="nl-leao-nums">
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">Selic</div>
+            <div class="nl-leao-num-val dn">13,75%</div>
+          </div>
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">IPCA 12m</div>
+            <div class="nl-leao-num-val">4,22%</div>
+          </div>
+          <div class="nl-leao-num-item">
+            <div class="nl-leao-num-label">Fed funds</div>
+            <div class="nl-leao-num-val">3,75–4%</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">O diferencial de juros ainda é gordo — Brasil paga 13,75%, EUA pagam 4%. Mas ele está <strong>encolhendo dos dois lados ao mesmo tempo</strong>, e mercado antecipa tendência, não fotografa o presente. Quem tem parte da carteira em dólar não precisa mexer em nada por causa de uma quarta-feira. Só precisa entender por que o vento mudou de lado.</div>
+      </div>
+    </div>
+
+    <!-- DISSECANDO A EMPRESA -->
+    <div class="nl-section-label">Dissecando a Empresa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">Empresa sob o bisturi esta semana</div>
+      <div class="nl-empresa-nome">Oracle — ORCL</div>
+      <div class="nl-block-title">US$ 30 bilhões em contratos de IA. A ação subiu, brilhou — e murchou.</div>
+      <div class="nl-block-text">
+        <p>Na quinta passada, a Oracle soltou um balanço de encher os olhos: elevou o guidance de lucro e disse ter <strong>fechado US$ 30 bilhões em contratos de nuvem de IA só no trimestre</strong>, com a carteira de contratos futuros (RPO) em nível recorde. Larry Ellison virou, por alguns dias, o homem mais rico do planeta. A ação disparou. O sonho de IA tinha, enfim, um número gigante de receita futura pra mostrar.</p>
+        <p>Aí veio a ressaca. Ao longo da semana, a ação <strong>devolveu boa parte do ganho (−3,7% num dia só)</strong> quando o mercado parou pra fazer a pergunta chata: <em>quem financia esse capex todo?</em> Datacenter de IA custa uma fortuna em dinheiro adiantado — e financiar fortuna com o Fed <strong>subindo</strong> juros ficou mais caro da noite pro dia. Pra piorar o clima, Ellison cancelou um programa de venda de US$ 7,5 bilhões em ações próprias, e nem sempre o mercado lê isso como voto de confiança.</p>
+        <p>A Oracle é o retrato perfeito da semana: a promessa de IA continua colossal, mas agora ela precisa conversar com um custo de capital que voltou a existir. Contrato bilionário lá na frente vale menos, hoje, quando o dinheiro pra bancá-lo custa 4% em vez de zero.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">A tese de IA não morreu — ela só recebeu uma fatura. Enquanto o juro caía, ninguém perguntava o preço do sonho. Agora que ele sobe, todo capex vira pergunta. <strong>Antes de pagar caro por "receita futura", vale checar quanto custa, hoje, o dinheiro que vai construir esse futuro.</strong></div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O Fed subiu 0,25 em Washington. Explico por que isso chega no seu extrato.</div>
+      <div class="nl-block-text">
+        <p>Parece distante: um comitê nos EUA mexe um quartinho de ponto no juro deles. O que isso tem a ver com o seu dinheiro em São Paulo? Tudo. Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Fed sobe pra 3,75–4% e promete mais</strong> → rendimento do Treasury de 10 anos vai a 5%, máxima desde 2007</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Juro americano mais alto</strong> → capital do mundo corre pra segurança que paga bem em dólar → dólar ganha força lá fora</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Dólar forte + Copom cortando aqui</strong> → o diferencial de juros Brasil-EUA encolhe → o real perde um de seus apoios</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Menos carry, mais seletividade</strong> → o gringo pensa duas vezes antes de trazer dinheiro pra bolsa e renda fixa brasileiras → Ibovespa e real ficam mais sensíveis a solavanco</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>Pra você:</strong> quem tem dólar ou Treasury embolsa juro gordo em moeda forte. Quem está 100% em real e bolsa BR está na ponta menos confortável do gangorra. Não é pânico — é razão pra ter os dois lados.</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Ninguém precisa dolarizar tudo correndo por causa de uma alta de 0,25. Mas quem já tinha uma perna em dólar acabou de ver por que ela está ali. <strong>Diversificação não é adivinhar o próximo movimento do Fed — é não depender de acertar nenhum deles.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode confirmar — ou desmentir — a cara feia do Fed nos próximos dias:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">EM BREVE</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Ata do FOMC e falas de Warsh</div>
+            <div class="nl-cal-desc">O dot plot prometeu mais uma alta. O mercado vai caçar na ata e nos discursos qualquer pista de quando — e se vem mesmo. Cada vírgula de Warsh mexe no Treasury de 10 anos.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">PRÓX.</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">PCE e dados de inflação dos EUA</div>
+            <div class="nl-cal-desc">O índice de inflação preferido do Fed é o teste da tese "inflação teimosa" que justificou a alta. Se vier quente, o mercado engole a segunda alta. Se ceder, reabre o debate.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">CONT.</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Oriente Médio e o fluxo por Ormuz</div>
+            <div class="nl-cal-desc">O reparo do duto saudita e a trégua com o Irã seguem no fio da navalha. Qualquer solavanco e o petróleo volta a subir — realimentando a inflação que o Fed diz estar combatendo.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A mordida do Lobo</div>
+        <div class="nl-dente-text">Semana de digerir, não de apostar. O Fed já jogou a carta grande; agora o mercado passa dias tentando decidir se acredita no blefe da "próxima alta". <strong>É hora de revisar a carteira com calma — não de reagir a cada tuíte e cada schedule de fala do Fed.</strong></div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por semana — explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Juro alto por mais tempo</div>
+        <div class="nl-verb-en">Higher for Longer</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>Todo mundo olha pra <em>onde</em> o juro está. O que move o mercado de verdade é <em>por quanto tempo</em> ele vai ficar lá. "Higher for longer" é o apelido do regime em que o banco central não só mantém o juro alto — ele sinaliza que <strong>vai demorar pra baixar</strong>. Foi exatamente o recado desta quarta: o Fed subiu e, no dot plot, cravou mais aperto à frente.</p>
+        <p>Por que isso derruba ação de tech? Porque o valor de uma empresa de crescimento vem de lucro que só chega lá na frente. Quando o juro fica alto por mais tempo, esse lucro futuro, trazido pra hoje, <strong>vale menos</strong> — e a conta da ação encolhe. É a mesma matemática que jogou o Treasury de 10 anos a 5% e fez a Oracle devolver ganho: dinheiro caro por muito tempo reprecifica tudo que promete pagar depois.</p>
+        <p>Ou seja: não é o tamanho do tapa que dói — é a ameaça de que vêm mais e que a mão vai continuar levantada.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Fed funds</div>
+          <div class="nl-verb-num-val">3,75–4%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Treasury 10a</div>
+          <div class="nl-verb-num-val up">~5%</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Dot plot</div>
+          <div class="nl-verb-num-val">+1 alta em 2026</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Sonho de corte</div>
+          <div class="nl-verb-num-val dn" style="font-size:12px; padding-top:2px;">Adiado.<br>De novo.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido — não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://somoslobo.com/privacidade">Política de privacidade</a>
+      <a href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+    </div>
+    <div class="nl-footer-legal">
+      {{ address }}<br>
+      Você recebe este email porque assinou O Lobo. Nada aqui é recomendação de investimento individual.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
