@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Lobo — Edição #015</title>
+<!--
+  SUBJECT LINE: O Google perdeu meio trilhão numa tarde. E você?
+  PREHEADER: Recorde e pânico na bolsa no mesmo mês, a empresa que ressuscitou e por que o eleitor americano mexeu no seu dólar.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #e8e8e8; display: flex; justify-content: center; padding: 40px 16px; }
+
+.nl {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  background: #FFFFFF;
+  color: #111110;
+  max-width: 680px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nl-header { padding: 28px 32px 20px; border-bottom: 3px solid #111110; }
+.nl-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.nl-logo-wrap { position: relative; display: inline-block; }
+.nl-logo-name { font-size: 42px; font-weight: 900; letter-spacing: 0.04em; color: #111110; line-height: 1; display: block; }
+.nl-logo-slash { position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #111110; transform: translateY(-50%); }
+.nl-tagline { margin-top: 9px; font-size: 10px; color: #888780; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.nl-meta-right { text-align: right; font-size: 11px; color: #888780; line-height: 1.9; }
+.nl-meta-right a { color: #111110; text-decoration: none; font-weight: 700; }
+.nl-social-row { display: flex; justify-content: flex-end; gap: 6px; margin-top: 5px; }
+.nl-social-pill { font-size: 10px; color: #888780; border: 1px solid #D3D1C7; padding: 1px 7px; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; }
+.nl-meta-bar { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E8E8E6; display: flex; flex-wrap: wrap; gap: 20px; font-size: 10px; color: #888780; letter-spacing: 0.08em; text-transform: uppercase; }
+.nl-meta-bar strong { color: #111110; font-weight: 700; }
+
+.nl-manchete { background: #111110; padding: 24px 32px; color: #FFFFFF; }
+.nl-manchete-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 10px; }
+.nl-manchete-text { font-size: 18px; font-weight: 700; line-height: 1.45; color: #FFFFFF; }
+.nl-manchete-text em { font-style: italic; font-weight: 400; color: #888780; }
+
+.nl-termo { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1.5px solid #111110; }
+.nl-termo-item { padding: 14px 6px; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-termo-item:last-child { border-right: none; }
+.nl-termo-label { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-termo-val { font-size: 15px; font-weight: 800; color: #111110; line-height: 1; }
+.nl-termo-chg { font-size: 10px; font-weight: 600; margin-top: 3px; }
+.nl-termo-note { font-size: 9px; color: #888780; text-align: center; padding: 6px 32px 0; letter-spacing: 0.04em; }
+.up { color: #2D8A4E; }
+.dn { color: #C0392B; }
+.nt { color: #888780; }
+
+.nl-body { padding: 0 32px; }
+.nl-section-label { font-size: 9px; letter-spacing: 0.22em; font-weight: 800; color: #888780; text-transform: uppercase; padding: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+.nl-section-label::after { content: ''; flex: 1; height: 1.5px; background: #111110; }
+
+.nl-block { padding-bottom: 28px; border-bottom: 1px solid #E8E8E6; }
+.nl-block-title { font-size: 22px; font-weight: 900; line-height: 1.18; color: #111110; margin-bottom: 14px; letter-spacing: -0.02em; }
+.nl-tachado { text-decoration: line-through; color: #C0C0BC; font-weight: 400; }
+.nl-block-text { font-size: 14px; line-height: 1.82; color: #3a3a38; }
+.nl-block-text p { margin-bottom: 13px; }
+.nl-block-text p:last-child { margin-bottom: 0; }
+.nl-block-text strong { color: #111110; font-weight: 700; }
+
+.nl-dente { margin-top: 16px; background: #111110; padding: 15px 18px; position: relative; }
+.nl-dente::before { content: ''; position: absolute; top: 0; left: 18px; width: 28px; height: 3px; background: #FFFFFF; }
+.nl-dente-label { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; margin-bottom: 8px; }
+.nl-dente-text { font-size: 13px; line-height: 1.72; color: #F1EFE8; }
+.nl-dente-text strong { color: #FFFFFF; }
+
+.nl-placar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nl-placar-col-label { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid currentColor; }
+.nl-placar-col-label.ganhou { color: #2D8A4E; }
+.nl-placar-col-label.perdeu { color: #C0392B; }
+.nl-placar-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #E8E8E6; font-size: 13px; }
+.nl-placar-row:last-child { border-bottom: none; }
+.nl-placar-ticker { font-weight: 800; color: #111110; letter-spacing: 0.04em; }
+.nl-placar-name { font-size: 11px; color: #888780; margin-left: 5px; font-weight: 400; }
+.nl-placar-pct { font-weight: 800; font-size: 13px; }
+.nl-placar-pct.up { color: #2D8A4E; }
+.nl-placar-pct.dn { color: #C0392B; }
+
+.nl-leao { border: 1.5px solid #111110; padding: 18px 20px; }
+.nl-leao-nums { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; border-top: 1px solid #E8E8E6; }
+.nl-leao-num { padding: 12px 8px 0; text-align: center; border-right: 1px solid #E8E8E6; }
+.nl-leao-num:last-child { border-right: none; }
+.nl-leao-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 4px; }
+.nl-leao-num-val { font-size: 17px; font-weight: 900; color: #111110; line-height: 1.1; }
+
+.nl-empresa-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #888780; border-left: 3px solid #111110; padding-left: 10px; margin-bottom: 12px; }
+.nl-empresa-nome { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; margin-bottom: 16px; line-height: 1; }
+
+.nl-cadeia { margin: 14px 0; border: 1.5px solid #111110; }
+.nl-cadeia-step { display: flex; align-items: flex-start; border-bottom: 1px solid #E8E8E6; font-size: 13px; color: #3a3a38; line-height: 1.5; }
+.nl-cadeia-step:last-child { border-bottom: none; }
+.nl-cadeia-num { font-size: 11px; font-weight: 900; color: #FFFFFF; background: #111110; min-width: 36px; padding: 11px 0; text-align: center; flex-shrink: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+.nl-cadeia-text { padding: 11px 14px; flex: 1; }
+.nl-cadeia-text strong { color: #111110; font-weight: 700; }
+
+.nl-cal-list { display: flex; flex-direction: column; }
+.nl-cal-item { display: grid; grid-template-columns: 68px 1fr; border: 1px solid #E8E8E6; border-bottom: none; }
+.nl-cal-item:last-child { border-bottom: 1px solid #E8E8E6; }
+.nl-cal-date { background: #111110; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px 8px; line-height: 1.3; }
+.nl-cal-content { padding: 12px 16px; }
+.nl-cal-titulo { font-size: 13px; font-weight: 800; color: #111110; margin-bottom: 3px; }
+.nl-cal-desc { font-size: 12px; color: #888780; line-height: 1.55; }
+
+.nl-verb { background: #F7F7F5; border: 1.5px solid #111110; padding: 24px 26px; margin-top: 4px; }
+.nl-verb-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #888780; margin-bottom: 14px; }
+.nl-verb-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid #111110; flex-wrap: wrap; }
+.nl-verb-term { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: #111110; line-height: 1; }
+.nl-verb-en { font-size: 11px; color: #888780; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nl-verb-def { font-size: 14px; line-height: 1.8; color: #3a3a38; }
+.nl-verb-def p { margin-bottom: 12px; }
+.nl-verb-def p:last-child { margin-bottom: 0; }
+.nl-verb-def strong { color: #111110; font-weight: 700; }
+.nl-verb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border: 1px solid #E8E8E6; }
+.nl-verb-num-item { padding: 12px 14px; border-right: 1px solid #E8E8E6; background: #FFFFFF; }
+.nl-verb-num-item:last-child { border-right: none; }
+.nl-verb-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 5px; }
+.nl-verb-num-val { font-size: 15px; font-weight: 900; color: #111110; line-height: 1.1; }
+.nl-verb-num-val.up { color: #2D8A4E; }
+.nl-verb-num-val.dn { color: #C0392B; }
+.nl-verb-fecho { margin-top: 18px; padding-top: 14px; border-top: 1.5px solid #111110; font-size: 14px; font-weight: 800; color: #111110; line-height: 1.5; }
+
+.nl-footer { padding: 22px 32px 30px; border-top: 1.5px solid #111110; margin-top: 8px; }
+.nl-footer-logo { font-size: 14px; font-weight: 900; letter-spacing: 0.12em; color: #111110; margin-bottom: 10px; text-transform: uppercase; }
+.nl-footer-text { font-size: 11px; color: #888780; line-height: 1.72; }
+.nl-footer-address { font-size: 10px; color: #888780; margin-top: 12px; line-height: 1.6; }
+.nl-footer-links { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.nl-footer-links a { font-size: 11px; color: #111110; text-decoration: none; font-weight: 600; letter-spacing: 0.04em; }
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  body { padding: 0; }
+  .nl-header { padding: 22px 18px 16px; }
+  .nl-header-top { flex-direction: column; gap: 12px; }
+  .nl-meta-right { text-align: left; }
+  .nl-social-row { justify-content: flex-start; }
+  .nl-logo-name { font-size: 34px; }
+  .nl-meta-bar { gap: 8px 14px; }
+  .nl-manchete { padding: 20px 18px; }
+  .nl-manchete-text { font-size: 16px; }
+  .nl-termo { grid-template-columns: repeat(3, 1fr); }
+  .nl-termo-item { border-bottom: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(3n) { border-right: none; }
+  .nl-termo-val { font-size: 16px; }
+  .nl-termo-note { padding: 6px 18px 0; }
+  .nl-body { padding: 0 18px; }
+  .nl-block-title { font-size: 19px; }
+  .nl-empresa-nome { font-size: 23px; }
+  .nl-placar-grid { grid-template-columns: 1fr; gap: 18px; }
+  .nl-leao { padding: 16px 14px; }
+  .nl-verb { padding: 20px 16px; }
+  .nl-verb-term { font-size: 23px; }
+  .nl-verb-nums { grid-template-columns: 1fr 1fr; }
+  .nl-verb-num-item:nth-child(2) { border-right: none; }
+  .nl-verb-num-item:nth-child(-n+2) { border-bottom: 1px solid #E8E8E6; }
+  .nl-cal-item { grid-template-columns: 56px 1fr; }
+  .nl-footer { padding: 20px 18px 26px; }
+}
+@media only screen and (max-width: 400px) {
+  .nl-termo { grid-template-columns: repeat(2, 1fr); }
+  .nl-termo-item:nth-child(3n) { border-right: 1px solid #E8E8E6; }
+  .nl-termo-item:nth-child(2n) { border-right: none; }
+  .nl-leao-nums { grid-template-columns: 1fr; }
+  .nl-leao-num { border-right: none; border-bottom: 1px solid #E8E8E6; padding-bottom: 10px; }
+  .nl-leao-num:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- HEADER -->
+  <div class="nl-header">
+    <div class="nl-header-top">
+      <div>
+        <div class="nl-logo-wrap">
+          <span class="nl-logo-name">O LOBO</span>
+          <div class="nl-logo-slash"></div>
+        </div>
+        <div class="nl-tagline">Dissecando Wall Street</div>
+      </div>
+      <div class="nl-meta-right">
+        <div><a href="https://somoslobo.com">somoslobo.com</a></div>
+        <div class="nl-social-row">
+          <a class="nl-social-pill" href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div class="nl-meta-bar">
+      <span>EDIÇÃO <strong>#015</strong></span>
+      <span>QUINTA, 5 NOV 2026</span>
+      <span>PERÍODO 1 OUT–4 NOV</span>
+      <span>LEITURA <strong>~7 MIN</strong></span>
+    </div>
+  </div>
+
+  <!-- MANCHETE -->
+  <div class="nl-manchete">
+    <div class="nl-manchete-kicker">O Lobo deste mês</div>
+    <div class="nl-manchete-text">
+      O Lobo agora é mensal. E que mês pra estrear. O Google perdeu meio trilhão de dólares numa tarde. A bolsa de tecnologia americana teve o pior mês em mais de um ano. Aqui, o Ibovespa bateu recorde no dia 9 e precisou ser desligado da tomada no dia 26. <em>E no fim, quem salvou o mês foi o eleitor americano.</em> Pega um café.
+    </div>
+  </div>
+
+  <!-- TERMÔMETRO DO MERCADO — variação 30/set → 4/nov -->
+  <div class="nl-termo">
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&amp;P 500</div>
+      <div class="nl-termo-val">7.689</div>
+      <div class="nl-termo-chg up">+0,5%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Nasdaq</div>
+      <div class="nl-termo-val">25.737</div>
+      <div class="nl-termo-chg dn">−4,2%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Petróleo Brent</div>
+      <div class="nl-termo-val">US$ 94</div>
+      <div class="nl-termo-chg dn">−8,8%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Dólar / Real</div>
+      <div class="nl-termo-val">R$ 5,48</div>
+      <div class="nl-termo-chg dn">+4,6% em out</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">Ibovespa</div>
+      <div class="nl-termo-val">167.563</div>
+      <div class="nl-termo-chg dn">−10,1%</div>
+    </div>
+    <div class="nl-termo-item">
+      <div class="nl-termo-label">S&amp;P em R$ vs CDI</div>
+      <div class="nl-termo-val">111%</div>
+      <div class="nl-termo-chg up">do CDI em 12m</div>
+    </div>
+  </div>
+  <div class="nl-termo-note">Variações de 30/set ao fechamento de quarta, 4/nov · Dólar: PTAX de 4/nov e variação de outubro</div>
+
+  <div class="nl-body">
+
+    <!-- PREDADORES / PRESAS -->
+    <div class="nl-section-label">Predadores &amp; Presas</div>
+    <div class="nl-block">
+      <div class="nl-cal-desc" style="margin-bottom: 10px;">Variações de outubro (30/set–30/out)</div>
+      <div class="nl-placar-grid">
+        <div>
+          <div class="nl-placar-col-label ganhou">▲ Predadores</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">ACN</span><span class="nl-placar-name">Accenture</span></div><div class="nl-placar-pct up">+40,8%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">PTC</span><span class="nl-placar-name">PTC</span></div><div class="nl-placar-pct up">+39,4%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">LMT</span><span class="nl-placar-name">Lockheed Martin</span></div><div class="nl-placar-pct up">+25,1%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">LLY</span><span class="nl-placar-name">Eli Lilly</span></div><div class="nl-placar-pct up">+22,5%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">RSP</span><span class="nl-placar-name">S&amp;P com peso igual</span></div><div class="nl-placar-pct up">+5,0%</div></div>
+        </div>
+        <div>
+          <div class="nl-placar-col-label perdeu">▼ Presas</div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">INTC</span><span class="nl-placar-name">Intel</span></div><div class="nl-placar-pct dn">−45,3%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">GOOGL</span><span class="nl-placar-name">Alphabet</span></div><div class="nl-placar-pct dn">−18,7%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">MU</span><span class="nl-placar-name">Micron</span></div><div class="nl-placar-pct dn">−16,9%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">META</span><span class="nl-placar-name">Meta</span></div><div class="nl-placar-pct dn">−15,2%</div></div>
+          <div class="nl-placar-row"><div><span class="nl-placar-ticker">NVDA</span><span class="nl-placar-name">Nvidia</span></div><div class="nl-placar-pct dn">−10,4%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Repara no pódio. Uma consultoria que todo mundo jurava que o ChatGPT ia matar. Uma fábrica de míssil. E um laboratório que vende remédio pra emagrecer, coisa que robô nenhum consegue fazer por você. Do outro lado, os queridinhos da inteligência artificial levando surra. A Intel perdeu quase metade do valor num mês só. <strong>Quem comprou a moda pagou a conta. Quem comprou a empresa sem graça ficou com o troco.</strong></div>
+      </div>
+    </div>
+
+    <!-- O LEÃO E O LOBO -->
+    <div class="nl-section-label">O Leão e o Lobo</div>
+    <div class="nl-block">
+      <div class="nl-leao">
+        <div class="nl-block-title">O mercado apostou tudo num cavalo. O cavalo perdeu. O mercado <span class="nl-tachado">aceitou</span> chorou no colo da B3.</div>
+        <div class="nl-block-text">
+          <p>Depois do primeiro turno, com Flávio Bolsonaro na frente, a Faria Lima estourou a champanhe antes da hora. A bolsa subiu quase 8% num dia e bateu recorde no dia 9. Aí veio o segundo turno, e Lula ganhou com 51,79% dos votos.</p>
+          <p>Na segunda-feira seguinte, a bolsa caiu tão rápido que precisou ser pausada. Isso se chama <strong>circuit breaker</strong>: é o botão de emergência que a B3 aperta quando o pânico fica feio demais. Fechou o dia caindo 13,88%, o pior tombo desde a pandemia. O dólar subiu 8% e foi pra R$ 5,40.</p>
+          <p>Não foi a eleição que quebrou a bolsa. Foi o tamanho da aposta. Quem aposta a casa num resultado e erra não pode reclamar do resultado. Na quarta, 4/nov, o Banco Central também puxou o freio de mão: parou de baixar os juros e deixou a Selic em 13,75%. Tradução: <strong>Brasília vai ter que mostrar que sabe fazer conta antes de ganhar presente.</strong></p>
+        </div>
+        <div class="nl-leao-nums">
+          <div class="nl-leao-num"><div class="nl-leao-num-label">Dólar PTAX 4/nov</div><div class="nl-leao-num-val">R$ 5,48</div></div>
+          <div class="nl-leao-num"><div class="nl-leao-num-label">Dólar em outubro</div><div class="nl-leao-num-val dn">+4,64%</div></div>
+          <div class="nl-leao-num"><div class="nl-leao-num-label">Selic</div><div class="nl-leao-num-val">13,75%</div></div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Quem tinha tudo na bolsa brasileira viu o recorde e o pânico no mesmo mês. Quem tinha um pedaço na bolsa americana ganhou em reais 111% do CDI em 12 meses, já contando a alta do dólar, que dessa vez jogou a favor. <strong>Você não precisa adivinhar eleição. Precisa parar de depender dela.</strong></div>
+      </div>
+    </div>
+
+    <!-- A NOVELA DO FED -->
+    <div class="nl-section-label">A Novela do Fed</div>
+    <div class="nl-block">
+      <div class="nl-block-title">Warsh jurou que ninguém falou de eleição. Claro, Warsh. Claro.</div>
+      <div class="nl-block-text">
+        <p>O Fed é o Banco Central americano, o síndico do dinheiro do planeta. Em setembro, subiu os juros. Em outubro, deixou parado. Dois diretores queriam subir de novo e perderam na votação.</p>
+        <p>Perguntaram ao chefe, Kevin Warsh, se a eleição da semana seguinte pesou na decisão. Ele disse que a política <strong>"não teve papel nenhum"</strong> e que ninguém tocou no assunto. Doze pessoas trancadas numa sala dois dias, a uma semana da eleição mais importante do ano, e ninguém comentou. É tipo almoço de domingo em que a família toda combinou de não falar do tio.</p>
+        <p>O mercado acha que vem nova alta em dezembro: <strong>81% de chance</strong>. E com a oposição mandando no Senado, Trump vai ter muito mais dificuldade pra colocar amigos dentro do Fed.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Juros mais altos lá fora deixam o dólar mais forte e os títulos americanos pagando mais. <strong>Se você está esperando o Fed baixar os juros pra começar a investir lá fora, pode esperar sentado. O Fed nem sabe que você existe.</strong></div>
+      </div>
+    </div>
+
+    <!-- EMPRESA SOB A LUPA -->
+    <div class="nl-section-label">Empresa Sob a Lupa</div>
+    <div class="nl-block">
+      <div class="nl-empresa-kicker">A empresa do mês</div>
+      <div class="nl-empresa-nome">Accenture — ACN</div>
+      <div class="nl-block-title">Enterraram a Accenture viva. Ela levantou do caixão e subiu 40%.</div>
+      <div class="nl-block-text">
+        <p>A Accenture é uma consultoria gigante. Empresas pagam fortunas pra ela organizar sistemas, processos e tecnologia, de preferência com slide bonito. Neste ano, Wall Street decidiu que ela estava morta: se a inteligência artificial faz em segundos o que o consultor cobra por hora, quem vai contratar consultor? A ação <strong>caiu pela metade entre janeiro e julho</strong>. Velório marcado, coroa de flores comprada.</p>
+        <p>No dia 1º de outubro, o defunto mostrou os números. Faturou US$ 18,7 bilhões no trimestre, mais do que a própria empresa tinha prometido. Fechou US$ 22,2 bilhões em contratos novos. E quase 100 clientes começaram projetos de IA com ela num trimestre só. A ação subiu quase 16% no dia e terminou outubro com <strong>+40,8%</strong>, a maior alta do S&amp;P 500.</p>
+        <p>A piada se conta sozinha: a IA não matou a consultoria. Deu trabalho pra ela, porque alguém precisa instalar o robô nas empresas. Mas o Lobo não é torcedor. A empresa espera crescer menos no ano que vem, admitiu que está cobrando mais barato em várias áreas, e está contratando menos gente. Morta ela não está. Mas também não virou milagre.</p>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Wall Street é um rebanho de terno caro. Todo mundo corre pro mesmo lado e chama isso de análise. Quando uma ideia vira certeza absoluta, o preço quase sempre exagera. <strong>Não é pra caçar a próxima Accenture. É pra desconfiar de qualquer coisa que todo mundo repete com a mesma cara de especialista.</strong></div>
+      </div>
+    </div>
+
+    <!-- A CONEXÃO QUE NINGUÉM EXPLICA -->
+    <div class="nl-section-label">A Conexão Que Ninguém Explica</div>
+    <div class="nl-block">
+      <div class="nl-block-title">O americano votou na terça. Seu dólar sentiu na quarta.</div>
+      <div class="nl-block-text">
+        <p>Na terça, a oposição ganhou o Congresso americano inteiro. Na quarta, Trump disse que aceita o resultado, e a bolsa de lá teve o melhor dia em um ano e meio. Por quê? Porque Congresso dividido briga muito e gasta pouco. <strong>E Wall Street ama um governo que não consegue fazer nada.</strong> Segue o fio:</p>
+      </div>
+      <div class="nl-cadeia">
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">01</div>
+          <div class="nl-cadeia-text"><strong>Congresso dividido</strong> → menos gastança do governo → menos dívida nova</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">02</div>
+          <div class="nl-cadeia-text"><strong>Menos dívida</strong> → os juros pagos pelo governo americano caem</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">03</div>
+          <div class="nl-cadeia-text"><strong>Juros caindo</strong> → guardar dinheiro em dólar fica menos atraente → o dólar perde força no mundo</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">04</div>
+          <div class="nl-cadeia-text"><strong>Em paralelo:</strong> menos tensão no Oriente Médio → o petróleo despencou quase 9% no dia</div>
+        </div>
+        <div class="nl-cadeia-step">
+          <div class="nl-cadeia-num">05</div>
+          <div class="nl-cadeia-text"><strong>No Brasil:</strong> o dólar comercial caiu 0,65% na quarta e fechou em R$ 5,45 (o oficial, a PTAX, ficou em R$ 5,48). Bonito. Só que em outubro ele subiu quase 5%, e quem mandou nisso foi Brasília, não Washington.</div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">O Fed continua com cara de quem vai subir juros em dezembro. E o novo Congresso vai brigar com Trump pelo limite de dívida do governo. <strong>Um dia bom não é tendência. É só um dia bom. Não vai casar com ele.</strong></div>
+      </div>
+    </div>
+
+    <!-- AGENDA DA ONÇA -->
+    <div class="nl-section-label">Agenda da Onça</div>
+    <div class="nl-block">
+      <div class="nl-block-text" style="margin-bottom: 14px;">O que pode estragar seu novembro:</div>
+      <div class="nl-cal-list">
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">6 NOV</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Empregos nos EUA: o primeiro teste pós-festa</div>
+            <div class="nl-cal-desc">Se o americano estiver empregado demais, o Fed sobe juros. Se estiver empregado de menos, o mercado se assusta. O mercado vai reclamar de qualquer jeito. É o esporte favorito dele.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">~18 NOV</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Nvidia mostra os números</div>
+            <div class="nl-cal-desc">A empresa que vende as "pás" da corrida do ouro da IA. A data ainda não foi confirmada. Se ela tropeçar, outubro foi só o trailer.</div>
+          </div>
+        </div>
+        <div class="nl-cal-item">
+          <div class="nl-cal-date">25 NOV</div>
+          <div class="nl-cal-content">
+            <div class="nl-cal-titulo">Inflação americana de outubro</div>
+            <div class="nl-cal-desc">É o termômetro favorito do Fed, e o último antes do dia 9 de dezembro, quando os juros de lá e de cá são decididos no mesmo dia. Inflação teimosa = juro americano subindo = real apanhando.</div>
+          </div>
+        </div>
+      </div>
+      <div class="nl-dente">
+        <div class="nl-dente-label">A Mordida do Lobo</div>
+        <div class="nl-dente-text">Novembro começa com a bolsa americana aliviada e a brasileira de ressaca. Bom momento pra abrir a carteira e ver quanto está num país só e numa moda só. <strong>Arrumar a carteira é chato. Explicar um circuit breaker pro seu cônjuge é pior.</strong></div>
+      </div>
+    </div>
+
+    <!-- VERBETÁRIO DO LOBO -->
+    <div class="nl-section-label">Verbetário do Lobo</div>
+    <div class="nl-verb">
+      <div class="nl-verb-kicker">Um termo por mês, explicado por quem não tem paciência pra enrolação</div>
+      <div class="nl-verb-header">
+        <div class="nl-verb-term">Fluxo de Caixa Livre</div>
+        <div class="nl-verb-en">Free Cash Flow</div>
+      </div>
+      <div class="nl-verb-def">
+        <p>É o dinheiro que <strong>sobra de verdade</strong> no fim do mês, depois de pagar as contas e os investimentos. Pensa no seu salário: não importa quanto você ganha, importa quanto sobra depois do aluguel, do cartão e da reforma da cozinha. Empresa é igual. Pode dar lucro bonito no papel e ainda assim estar com a conta no vermelho, se gastar tudo em obra.</p>
+        <p>Em outubro, o Google (a Alphabet) mostrou receita recorde. Mas está gastando tanto em computadores pra inteligência artificial que, pelo segundo trimestre seguido, <strong>saiu mais dinheiro do que entrou</strong>. Primeira vez na história. A ação caiu 13% num dia e evaporou uns US$ 500 bilhões. A Amazon torrou US$ 42,4 bilhões em um ano. Já a Microsoft, que também gasta horrores, ainda teve sobra de US$ 18,6 bilhões no trimestre e quase não sofreu.</p>
+        <p>Resumindo: crescer virou obrigação. Sobrar dinheiro virou mérito.</p>
+      </div>
+      <div class="nl-verb-nums">
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Sobrou na Microsoft (tri)</div>
+          <div class="nl-verb-num-val up">+US$ 18,6 bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Torrou a Amazon (12m)</div>
+          <div class="nl-verb-num-val dn">−US$ 42,4 bi</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Google</div>
+          <div class="nl-verb-num-val dn">2 trimestres no vermelho</div>
+        </div>
+        <div class="nl-verb-num-item">
+          <div class="nl-verb-num-label">Preço da lição</div>
+          <div class="nl-verb-num-val dn" style="font-size:12px; padding-top:2px;">US$ 500 bi<br>numa tarde.</div>
+        </div>
+      </div>
+      <div class="nl-verb-fecho">Lucro é opinião. Caixa é fato. O Google pagou meio trilhão pra aprender isso. Você aprendeu de graça, lendo o Lobo. De nada.</div>
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <div class="nl-footer-logo">O Lobo</div>
+    <div class="nl-footer-text">
+      O Lobo não é corretora, não tem produto pra vender, não recebe comissão de ninguém. Quando a gente indica alguma coisa, é porque faz sentido, não porque pagaram pra isso. Se alguém algum dia pagar, a gente conta. Nada aqui é recomendação individual de investimento.<br><br>
+      Discordou de algo? Achou que o Lobo errou? Manda email. A gente lê. Às vezes até concorda.
+    </div>
+    <div class="nl-footer-address">{{ address }}</div>
+    <div class="nl-footer-links">
+      <a href="https://somoslobo.com">somoslobo.com</a>
+      <a href="{{ unsubscribe_url }}">Cancelar inscrição</a>
+      <a href="https://somoslobo.com/privacidade">Política de privacidade</a>
+      <a href="https://instagram.com/somoslobo.newsletter">@somoslobo.newsletter</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
